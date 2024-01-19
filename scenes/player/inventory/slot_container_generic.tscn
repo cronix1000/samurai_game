@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://boctsrgakcum1"]
+
+[ext_resource type="Script" path="res://scenes/player/inventory/slot_container_generic.gd" id="1_s047x"]
+[ext_resource type="PackedScene" uid="uid://tmimvi1i64u7" path="res://scenes/player/inventory/item_slot.tscn" id="2_7iamj"]
+
+[node name="slot_container_generic" type="GridContainer"]
+script = ExtResource("1_s047x")
+ItemSlot = ExtResource("2_7iamj")

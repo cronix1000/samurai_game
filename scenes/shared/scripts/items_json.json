@@ -1,0 +1,10 @@
+{
+
+	"tomato": {
+		"name": "Tomato",
+		"icon": "tomato.png",
+		"stackable": true,
+		"quantity": 1
+	},
+
+}

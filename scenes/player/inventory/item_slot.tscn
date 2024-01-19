@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://tmimvi1i64u7"]
+
+[ext_resource type="Script" path="res://scenes/player/inventory/item_slot.gd" id="1_q8nxl"]
+
+[node name="item_slot" type="TextureRect"]
+script = ExtResource("1_q8nxl")
+
+[node name="item_quantity" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 27.0
+offset_bottom = 28.0
+
+[node name="item_icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
