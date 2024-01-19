@@ -4,6 +4,9 @@ extends State
 
 class_name IdleState	
 
+func _ready():
+	animation_player.play("idle")
+
 func _process(delta):
 		if !persistent_state.is_on_floor():
 			persistent_state.velocity.y += 30
@@ -12,7 +15,6 @@ func _process(delta):
 
 func _flip_direction():
 	character_sprite.flip_h = not character_sprite.flip_h
-	persistent_state.flip_limbs()
 
 func move_left():
 	if character_sprite.flip_h:

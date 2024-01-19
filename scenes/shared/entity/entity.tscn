@@ -6,8 +6,8 @@
 [node name="entity" type="CharacterBody2D"]
 script = ExtResource("1_1ei00")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CharacterSprite" type="Sprite2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="Area2D" parent="." instance=ExtResource("2_l6qvx")]
+[node name="HurtBox" parent="." instance=ExtResource("2_l6qvx")]

@@ -1,5 +1,198 @@
-[gd_scene load_steps=2 format=3 uid="uid://eng0556r3j57"]
+[gd_scene load_steps=15 format=3 uid="uid://eng0556r3j57"]
 
 [ext_resource type="PackedScene" uid="uid://db1ujd1clhbbk" path="res://scenes/shared/entity/entity.tscn" id="1_qmcco"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="2_o7j26"]
+[ext_resource type="Texture2D" uid="uid://dxajt14yc4u6d" path="res://scenes/player/Character-Sheet.png" id="3_6xqr4"]
+[ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="4_bp1co"]
+[ext_resource type="Texture2D" uid="uid://dc14fc6mjftcn" path="res://scenes/main/paralax field.png" id="5_w4i2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxhws"]
+size = Vector2(19, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjx04"]
+atlas = ExtResource("3_6xqr4")
+region = Rect2(0, 0, 240, 144)
+
+[sub_resource type="Animation" id="Animation_n6edj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hit_box/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9.27405, 12.274)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hit_box/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterSprite:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b451l"]
+resource_name = "attack"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hit_box/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-9.27405, 12.274), Vector2(11.637, -12.637), Vector2(14, -5), Vector2(13.9576, 7.55289), Vector2(-4, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hit_box/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.785398, -0.785398, -0.785398, 0.523599, 0.523599]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterSprite:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fn8qx"]
+resource_name = "idle"
+length = 0.7
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_46slo"]
+resource_name = "move"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hit_box/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5.94816, 3.82602)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kkuvk"]
+_data = {
+"RESET": SubResource("Animation_n6edj"),
+"attack": SubResource("Animation_b451l"),
+"idle": SubResource("Animation_fn8qx"),
+"move": SubResource("Animation_46slo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq7gl"]
+size = Vector2(14.2851, 4.24264)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfsck"]
+size = Vector2(20, 35)
 
 [node name="entity" instance=ExtResource("1_qmcco")]
+script = ExtResource("2_o7j26")
+
+[node name="Area2D@CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_lxhws")
+
+[node name="CharacterSprite" parent="." index="1"]
+texture_filter = 1
+texture = SubResource("AtlasTexture_gjx04")
+hframes = 5
+vframes = 3
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_kkuvk")
+}
+
+[node name="hit_box" parent="." index="3" instance=ExtResource("4_bp1co")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box" index="0"]
+position = Vector2(-9.27405, 12.274)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_wq7gl")
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+position = Vector2(0, -100)
+zoom = Vector2(1.94, 1.94)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="5"]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground" index="0"]
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1441.0
+offset_bottom = 797.0
+texture = ExtResource("5_w4i2l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="6"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_cfsck")
+debug_color = Color(0.360784, 0.611765, 0.211765, 0.419608)

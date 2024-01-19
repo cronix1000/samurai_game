@@ -7,7 +7,7 @@ var min_move_speed = 0.005
 var friction = 0.32
 
 func _ready():
-	#animation_player.play("run")
+	animation_player.play("move")
 	#move_speed = persistent_state.movement_speed
 	if character_sprite.flip_h:
 		move_speed *= -1
