@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgigri6yeqacv"]
+
+[ext_resource type="Script" path="res://scenes/enemy/tomato/ability/basic_attack_fireball.gd" id="1_qaass"]
+[ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="2_3knul"]
+[ext_resource type="Texture2D" uid="uid://dj8sdpe08w5vs" path="res://scenes/enemy/tomato/ability/Fireball.png" id="2_vphk6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ge87"]
+atlas = ExtResource("2_vphk6")
+region = Rect2(0, 0, 192, 64)
+
+[node name="basic_fireball_attack\'" type="CharacterBody2D"]
+script = ExtResource("1_qaass")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_3ge87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Area2D" parent="." instance=ExtResource("2_3knul")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

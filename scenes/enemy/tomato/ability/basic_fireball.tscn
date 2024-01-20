@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dv12hvmfwdjvw"]
+
+[node name="basic_fireball" type="Node"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.775
+autostart = true
