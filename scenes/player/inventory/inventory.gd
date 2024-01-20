@@ -11,12 +11,18 @@ func _ready():
 	for i in range(slots):
 		items.append(null)
 	items[0] = GameManager.get_item_by_key("tomato")
+	#emit_signal("items_changed", [0])
 
 func set_item(index, item):
 	var previous_item = items[index]
 	items[index] = item
 	emit_signal("items_changed", [index])
 	return previous_item
+
+func add_item(item):
+	var index = items.find(null)
+	items[index] = item
+	emit_signal("items_changed", [index])
 
 func remove_item(index):
 	var previous_item = items[index].duplicate()

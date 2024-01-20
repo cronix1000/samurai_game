@@ -1,6 +1,8 @@
 @tool
 extends CharacterBody2D
 class_name Entity
+var state : State
+var state_factory
 
 
 @export var movement_speed : int = 35.0
@@ -45,3 +47,22 @@ func _on_hurt_box_area_entered(hitbox):
 	var base_damage = hitbox.damage
 	self.hp -= base_damage
 	
+func _ready():
+	state_factory = StateFactory.new()
+	change_state("idle")
+
+
+func move_left():
+	state.move_left()
+
+func move_right():
+	state.move_right()
+
+func change_state(new_state_name):
+	if state != null:
+		state.queue_free()
+	state = state_factory.get_state(new_state_name).new()
+	state.setup(Callable(self, "change_state"), $AnimationPlayer,$CharacterSprite ,self)
+	state.name = "current_state"
+	add_child(state)
+

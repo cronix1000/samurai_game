@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5jj4eyaiowp0"
-path="res://.godot/imported/Tile-Sheet.png-2cf2af1a34d3327ce9f8442d079336ca.ctex"
+uid="uid://b6teeq8shlleo"
+path="res://.godot/imported/Tomato-Sheet.png-32810256c86137348c5818f6add80de6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/main/Tile-Sheet.png"
-dest_files=["res://.godot/imported/Tile-Sheet.png-2cf2af1a34d3327ce9f8442d079336ca.ctex"]
+source_file="res://scenes/enemy/tomato/Tomato-Sheet.png"
+dest_files=["res://.godot/imported/Tomato-Sheet.png-32810256c86137348c5818f6add80de6.ctex"]
 
 [params]
 

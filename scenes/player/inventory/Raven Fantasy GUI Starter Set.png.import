@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5jj4eyaiowp0"
-path="res://.godot/imported/Tile-Sheet.png-2cf2af1a34d3327ce9f8442d079336ca.ctex"
+uid="uid://bpja2rab8t1pj"
+path="res://.godot/imported/Raven Fantasy GUI Starter Set.png-bf8bd853e329681b55fa52f8fab9e8cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/main/Tile-Sheet.png"
-dest_files=["res://.godot/imported/Tile-Sheet.png-2cf2af1a34d3327ce9f8442d079336ca.ctex"]
+source_file="res://scenes/player/inventory/Raven Fantasy GUI Starter Set.png"
+dest_files=["res://.godot/imported/Raven Fantasy GUI Starter Set.png-bf8bd853e329681b55fa52f8fab9e8cd.ctex"]
 
 [params]
 

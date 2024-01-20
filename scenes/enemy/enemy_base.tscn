@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6g1xyyafiyk7"]
+
+[ext_resource type="PackedScene" uid="uid://db1ujd1clhbbk" path="res://scenes/shared/entity/entity.tscn" id="1_irv6t"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="2_mvtxy"]
+
+[node name="enemy_base" instance=ExtResource("1_irv6t")]
+script = ExtResource("2_mvtxy")
+aggro = true
+
+[node name="AggroRange" type="Area2D" parent="." index="3"]
+
+[connection signal="area_entered" from="AggroRange" to="." method="_on_aggro_range_area_entered"]
+[connection signal="area_exited" from="AggroRange" to="." method="_on_aggro_range_area_exited"]

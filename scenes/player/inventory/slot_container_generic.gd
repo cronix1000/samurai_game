@@ -9,20 +9,17 @@ var slots
 func _ready():
 	await "process_frame"
 	Inventory = inventory
-	#display_item_slots(Inventory.cols, Inventory.rows)
+	display_item_slots(Inventory.cols, Inventory.rows)
 	#position = (get_viewport_rect().size - get_rect().size) /2
 
 
 func display_item_slots(cols,rows):
-	#await Inventory.ready
 	columns = cols
 	slots = cols* rows
 	for index in range(slots):
 		var item_slot = ItemSlot.instantiate()
-		item_slot.name = "%s" % index
 		add_child(item_slot)
 		item_slot.display_item(Inventory.items[index])
-		print(Inventory.items[index])
 	Inventory.connect("items_changed", Callable(self, "_on_inventory_items_changed"))
 	
 func _on_inventory_items_changed(indexes):

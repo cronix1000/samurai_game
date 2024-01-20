@@ -2,7 +2,7 @@ extends State
 
 class_name RunState
 
-var move_speed = 50
+var move_speed = 175
 var min_move_speed = 0.005
 var friction = 0.32
 

@@ -155,7 +155,7 @@ size = Vector2(14.2851, 4.24264)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfsck"]
 size = Vector2(20, 35)
 
-[node name="entity" instance=ExtResource("1_qmcco")]
+[node name="player" instance=ExtResource("1_qmcco")]
 script = ExtResource("2_o7j26")
 
 [node name="Area2D@CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
@@ -201,3 +201,8 @@ debug_color = Color(0.360784, 0.611765, 0.211765, 0.419608)
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
 
 [node name="slot_container_generic" parent="CanvasLayer" index="0" instance=ExtResource("7_7r1ht")]
+anchors_preset = -1
+anchor_right = 0.281
+anchor_bottom = 0.089
+offset_right = -323.712
+offset_bottom = -57.672
