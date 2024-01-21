@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmyb0jvp843ac"]
+[gd_scene load_steps=14 format=3 uid="uid://dmyb0jvp843ac"]
 
-[ext_resource type="PackedScene" uid="uid://c6g1xyyafiyk7" path="res://scenes/enemy/enemy_base.tscn" id="1_dj1h6"]
+[ext_resource type="PackedScene" uid="uid://dtdjuavhyjcln" path="res://scenes/enemy/enemy_base.tscn" id="1_dj1h6"]
 [ext_resource type="Script" path="res://scenes/enemy/tomato/tomato.gd" id="2_vwi13"]
 [ext_resource type="Texture2D" uid="uid://b6teeq8shlleo" path="res://scenes/enemy/tomato/Tomato-Sheet.png" id="3_f4mrp"]
+[ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="4_l8522"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7sl4"]
 atlas = ExtResource("3_f4mrp")
@@ -73,13 +74,16 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_8kqbd"]
 radius = 20.6155
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1plm"]
-size = Vector2(471, 126)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_5wb3c"]
 radius = 18.2483
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klp71"]
+size = Vector2(579, 148)
+
 [node name="tomato" instance=ExtResource("1_dj1h6")]
+position = Vector2(0, 0)
+collision_layer = 8
+velocity = Vector2(0, 0)
 script = ExtResource("2_vwi13")
 attack_range = 150
 
@@ -94,15 +98,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ndwjn")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
+[node name="hit_box" parent="." index="2" instance=ExtResource("4_l8522")]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box" index="0"]
 shape = SubResource("CircleShape2D_8kqbd")
 debug_color = Color(0.733333, 0.4, 0.65098, 0.419608)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRange" index="0"]
-position = Vector2(0.5, -38)
-shape = SubResource("RectangleShape2D_r1plm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+[node name="collider" type="CollisionShape2D" parent="." index="3"]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_5wb3c")
 debug_color = Color(0.0705882, 0.631373, 0.458824, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aggro_range" index="0"]
+position = Vector2(1, -50)
+shape = SubResource("RectangleShape2D_klp71")

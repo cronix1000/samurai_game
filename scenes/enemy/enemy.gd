@@ -6,7 +6,8 @@ var aggro_target : Entity
 
 
 func _on_aggro_range_area_entered(area):
-	aggro_target = area.get_parent()
+	if(area.get_parent().is_in_group("player")):
+		aggro_target = area.get_parent()
 
 
 

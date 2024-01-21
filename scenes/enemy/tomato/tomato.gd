@@ -2,22 +2,26 @@ extends EnemyBase
 @export var attack_range := 150
 
 var item 
-
-
+var look_direction = 1
+var fire_ball = load_ability("basic_fireball_attack")
 
 func _physics_process(delta):
 	if aggro_target:
-		if global_position.distance_to(aggro_target.position) >= attack_range : 
+		if global_position.distance_to(aggro_target.position) <= attack_range : 
 			attack()
 		else:
 			move_to_player()
 			change_state("run")
 
 func attack():
-	die()
-
+	fire_ball.basic_attack(self, 0.5)
+	
+func get_aim_position():
+	if(aggro_target):
+		return aggro_target.position
+	
+		
 func move_to_player():
-	die()
 	if aggro_target.position.x > global_position.x:
 		move_right()	
 	else:
