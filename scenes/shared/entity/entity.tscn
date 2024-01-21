@@ -1,13 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://db1ujd1clhbbk"]
 
 [ext_resource type="Script" path="res://scenes/shared/entity/entity.gd" id="1_1ei00"]
-[ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="2_l6qvx"]
+[ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="3_7rbmc"]
 
 [node name="entity" type="CharacterBody2D"]
+position = Vector2(0, 3.80419e+08)
+collision_mask = 16
+velocity = Vector2(0, 814770)
 script = ExtResource("1_1ei00")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="HurtBox" parent="." instance=ExtResource("2_l6qvx")]
+[node name="Hurt_Box" parent="." instance=ExtResource("3_7rbmc")]

@@ -12,7 +12,7 @@ var hp : int = hp_total : set = set_hp
 
 @onready var player : AnimationPlayer = $AnimationPlayer
 @onready var character_sprite : Sprite2D = $CharacterSprite
-@onready var hurt_box = $HurtBox
+@onready var hurt_box = $Hurt_Box
 
 signal hp_changed(new_hp)
 signal hp_max_changed(new_total_hp)
