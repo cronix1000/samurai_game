@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgigri6yeqacv"]
+
+[ext_resource type="Script" path="res://scenes/Abilities/basic_attack_fireball.gd" id="1_qaass"]
+
+[node name="basic_fireball_attack\'" type="CharacterBody2D"]
+script = ExtResource("1_qaass")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.775
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
