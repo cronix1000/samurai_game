@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bad7fv87msulj"]
+
+[ext_resource type="PackedScene" uid="uid://dl3crcjqmyr0e" path="res://scenes/enemy/enemy.tscn" id="1_pxpjx"]
+[ext_resource type="Script" path="res://scenes/enemy/lettuce/lettuce.gd" id="2_vpdt1"]
+
+[node name="lettuce" instance=ExtResource("1_pxpjx")]
+script = ExtResource("2_vpdt1")
