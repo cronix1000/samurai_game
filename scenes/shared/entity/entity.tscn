@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="3_7rbmc"]
 
 [node name="entity" type="CharacterBody2D"]
-position = Vector2(0, 3.80419e+08)
+scale = Vector2(0.999999, 0.999999)
 collision_mask = 16
-velocity = Vector2(0, 814770)
+velocity = Vector2(0, 2.08935e+06)
 script = ExtResource("1_1ei00")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
@@ -14,3 +14,5 @@ script = ExtResource("1_1ei00")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Hurt_Box" parent="." instance=ExtResource("3_7rbmc")]
+
+[connection signal="area_entered" from="Hurt_Box" to="." method="_on_hurt_box_area_entered"]

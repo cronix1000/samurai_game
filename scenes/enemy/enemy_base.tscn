@@ -14,7 +14,11 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="aggro_range" type="Area2D" parent="." index="3"]
-collision_layer = 8
+collision_layer = 0
 
+[connection signal="body_entered" from="Hurt_Box" to="." method="_on_hurt_box_body_entered"]
+[connection signal="body_exited" from="Hurt_Box" to="." method="_on_hurt_box_body_exited"]
 [connection signal="area_entered" from="aggro_range" to="." method="_on_aggro_range_area_entered"]
 [connection signal="area_exited" from="aggro_range" to="." method="_on_aggro_range_area_exited"]
+[connection signal="body_entered" from="aggro_range" to="." method="_on_aggro_range_body_entered"]
+[connection signal="body_exited" from="aggro_range" to="." method="_on_aggro_range_body_exited"]

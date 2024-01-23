@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var aim_pos
 @onready var self_pos
 @onready var player = $AnimationPlayer
+@onready var sprite = $Sprite2D
+
 
 var speed = 200
 var controller = null
@@ -12,8 +14,9 @@ func _ready():
 	self_pos = self.global_position
 	aim_pos = controller.get_aim_position()
 	velocity = self_pos.direction_to(aim_pos) * speed
-	print(global_position.direction_to(aim_pos))
 	player.play("flying")
+	if(velocity.x) < 0:
+		sprite.flip_h = true
 	await get_tree().create_timer(2).timeout
 	queue_free()
 	#Explote etc...
@@ -29,3 +32,7 @@ func _physics_process(delta):
 		#if(collider.is_in_group("health")):
 		#	collider.health
 			
+
+
+func _on_hurt_box_area_entered(hitbox):
+	queue_free()

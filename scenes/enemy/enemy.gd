@@ -4,12 +4,10 @@ class_name EnemyBase
 var aggro_target : Entity
 
 
-
-func _on_aggro_range_area_entered(area):
-	if(area.get_parent().is_in_group("player")):
-		aggro_target = area.get_parent()
-
+func _on_aggro_range_body_entered(body):
+	if(body.is_in_group("player")):
+		aggro_target = body
 
 
-func _on_aggro_range_area_exited(area):
+func _on_aggro_range_body_exited(body):
 	aggro_target = null

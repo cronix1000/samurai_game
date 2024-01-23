@@ -1,18 +1,45 @@
 [gd_scene load_steps=4 format=3 uid="uid://tmimvi1i64u7"]
 
-[ext_resource type="Texture2D" uid="uid://bpja2rab8t1pj" path="res://scenes/player/inventory/Raven Fantasy GUI Starter Set.png" id="1_dxcog"]
 [ext_resource type="Script" path="res://scenes/player/inventory/item_slot.gd" id="1_q8nxl"]
+[ext_resource type="Texture2D" uid="uid://bpja2rab8t1pj" path="res://scenes/player/inventory/Raven Fantasy GUI Starter Set.png" id="1_uhxhv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7hvst"]
-atlas = ExtResource("1_dxcog")
+[sub_resource type="AtlasTexture" id="AtlasTexture_udcso"]
+atlas = ExtResource("1_uhxhv")
 region = Rect2(0, 64, 16, 16)
 
 [node name="item_slot" type="TextureRect"]
 custom_minimum_size = Vector2(55, 55)
-offset_right = 60.0
-offset_bottom = 60.0
-texture = SubResource("AtlasTexture_7hvst")
+anchors_preset = -1
+anchor_left = 0.00173611
+anchor_top = 0.00154321
+anchor_right = 0.124868
+anchor_bottom = 0.190543
+offset_right = -89.848
+offset_bottom = -77.472
+scale = Vector2(2.7029, 2.72)
 script = ExtResource("1_q8nxl")
+metadata/_edit_use_anchors_ = true
+
+[node name="item_quantity" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.709
+anchor_top = 0.69
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.159
+offset_top = -18.43
+offset_right = -11.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 49.0
+scale = Vector2(1.33333, 0.931507)
+texture = SubResource("AtlasTexture_udcso")
 
 [node name="item_icon" type="TextureRect" parent="."]
 layout_mode = 1
@@ -21,9 +48,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -17.1408
+offset_top = -18.3088
+offset_right = 13.8592
+offset_bottom = -3.30882
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.64706)
+expand_mode = 1

@@ -14,7 +14,7 @@ func _physics_process(delta):
 			change_state("run")
 
 func attack():
-	fire_ball.basic_attack(self, 0.5)
+	fire_ball.basic_attack(self, 1.2)
 	
 func get_aim_position():
 	if(aggro_target):
@@ -27,7 +27,8 @@ func move_to_player():
 	else:
 		move_left()	
 
-func die():
+
+func _on_has_died():
 	item = GameManager.get_item_by_key("tomato")
 	inventory.add_item(item)
 	queue_free()
