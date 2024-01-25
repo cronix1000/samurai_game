@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcpwfdkuc3ik0"]
+[gd_scene load_steps=10 format=3 uid="uid://dcpwfdkuc3ik0"]
 
 [ext_resource type="Texture2D" uid="uid://c5jj4eyaiowp0" path="res://scenes/main/Tile-Sheet.png" id="1_t85kn"]
 [ext_resource type="PackedScene" uid="uid://eng0556r3j57" path="res://scenes/player/player.tscn" id="2_er34e"]
 [ext_resource type="PackedScene" uid="uid://dmyb0jvp843ac" path="res://scenes/enemy/tomato/tomato.tscn" id="3_wbsbb"]
 [ext_resource type="PackedScene" uid="uid://dw7jaerjt1qvp" path="res://scenes/enemy/chicken/chicken.tscn" id="4_7riuj"]
+[ext_resource type="PackedScene" uid="uid://rwpg2s3xj77s" path="res://scenes/enemy/fish/fish.tscn" id="5_yxb8y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l11k5"]
 texture = ExtResource("1_t85kn")
@@ -682,3 +683,6 @@ layer_0/tile_data = PackedInt32Array(65502, 983040, 9, 65503, 1114112, 7, 65504,
 
 [node name="chicken" parent="." instance=ExtResource("4_7riuj")]
 position = Vector2(144, -47)
+
+[node name="fish" parent="." instance=ExtResource("5_yxb8y")]
+position = Vector2(100, -50)

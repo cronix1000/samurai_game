@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfx614ms30y7b"]
 
 [ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_kd5cf"]
-[ext_resource type="Script" path="res://scenes/restruant/minigames/timed_click.gd" id="2_82d4a"]
+[ext_resource type="Script" path="res://scenes/restruant/minigames/timed_slider.gd" id="2_82d4a"]
 [ext_resource type="Texture2D" uid="uid://cr8lbum8t1ley" path="res://scenes/restruant/minigames/grg.png" id="2_son5r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pe68b"]
