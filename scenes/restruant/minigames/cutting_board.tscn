@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfx614ms30y7b"]
+
+[ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_kd5cf"]
+[ext_resource type="Script" path="res://scenes/restruant/minigames/timed_click.gd" id="2_82d4a"]
+[ext_resource type="Texture2D" uid="uid://cr8lbum8t1ley" path="res://scenes/restruant/minigames/grg.png" id="2_son5r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe68b"]
+atlas = ExtResource("1_kd5cf")
+region = Rect2(0, 0, 128, 112)
+
+[node name="cutting_board" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Cutting Board" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1157.0
+offset_bottom = 650.0
+texture = SubResource("AtlasTexture_pe68b")
+
+[node name="TimedClick" type="CanvasLayer" parent="."]
+script = ExtResource("2_82d4a")
+
+[node name="TextureRect" type="TextureRect" parent="TimedClick"]
+offset_left = 412.0
+offset_top = 258.0
+offset_right = 818.0
+offset_bottom = 346.0
+texture = ExtResource("2_son5r")
+expand_mode = 1
+
+[node name="HSlider" type="HSlider" parent="TimedClick"]
+offset_left = 426.0
+offset_top = 270.0
+offset_right = 801.0
+offset_bottom = 337.0
+
+[node name="Output" type="Label" parent="TimedClick"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 503.0
+offset_top = 146.0
+offset_right = -479.0
+offset_bottom = -421.0
+horizontal_alignment = 1
+vertical_alignment = 1
