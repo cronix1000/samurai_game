@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmyb0jvp843ac"]
+[gd_scene load_steps=13 format=3 uid="uid://dmyb0jvp843ac"]
 
+[ext_resource type="PackedScene" uid="uid://dtdjuavhyjcln" path="res://scenes/enemy/enemy_base.tscn" id="1_dj1h6"]
 [ext_resource type="Script" path="res://scenes/enemy/tomato/tomato.gd" id="2_vwi13"]
 [ext_resource type="Texture2D" uid="uid://b6teeq8shlleo" path="res://scenes/enemy/tomato/Tomato-Sheet.png" id="3_f4mrp"]
 
@@ -78,7 +79,7 @@ radius = 18.6815
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klp71"]
 size = Vector2(579, 141)
 
-[node name="tomato"]
+[node name="tomato" instance=ExtResource("1_dj1h6")]
 position = Vector2(0, 0)
 scale = Vector2(1, 1)
 collision_layer = 8

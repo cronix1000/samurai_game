@@ -1,29 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dia0ybawgfhlk"]
+[gd_scene load_steps=12 format=3 uid="uid://jg1q6esa6dhq"]
 
-[ext_resource type="Script" path="res://scenes/enemy/lemon/lemon.gd" id="2_602eq"]
-[ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="3_363a1"]
-[ext_resource type="Texture2D" uid="uid://ci5lejk8rw5b0" path="res://scenes/enemy/lemon/Lemon-Sheet.png" id="3_bj0km"]
+[ext_resource type="PackedScene" uid="uid://dtdjuavhyjcln" path="res://scenes/enemy/enemy_base.tscn" id="1_g7tg6"]
+[ext_resource type="Script" path="res://scenes/enemy/chicken/chicken.gd" id="2_to7g2"]
+[ext_resource type="Texture2D" uid="uid://ci5lejk8rw5b0" path="res://scenes/enemy/lemon/Lemon-Sheet.png" id="3_ox18f"]
 
-[sub_resource type="Animation" id="Animation_wf4fg"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_j26bv"]
-resource_name = "RESET"
+[sub_resource type="Animation" id="Animation_7kidk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -35,13 +16,35 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 0)]
+"values": [Vector2i(0, 2)]
 }
 
-[sub_resource type="Animation" id="Animation_nytpv"]
+[sub_resource type="Animation" id="Animation_fue5g"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_7gv8c"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_0cuag"]
 resource_name = "move"
 length = 0.55
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,136 +58,57 @@ tracks/0/keys = {
 "values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3)]
 }
 
-[sub_resource type="Animation" id="Animation_0inij"]
-resource_name = "hit"
-length = 0.45
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(0, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_y5u8u"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ndwjn"]
 _data = {
-"RESET": SubResource("Animation_j26bv"),
-"hit": SubResource("Animation_0inij"),
-"idle": SubResource("Animation_wf4fg"),
-"move": SubResource("Animation_nytpv")
+"RESET": SubResource("Animation_7kidk"),
+"attack": SubResource("Animation_fue5g"),
+"idle": SubResource("Animation_7gv8c"),
+"move": SubResource("Animation_0cuag")
 }
 
-[sub_resource type="Animation" id="Animation_vh0f7"]
-resource_name = "RESET"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wb3c"]
+radius = 16.0312
 
-[sub_resource type="Animation" id="Animation_8joi8"]
-resource_name = "hit"
-length = 0.45
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(0, 1)]
-}
+[sub_resource type="CircleShape2D" id="CircleShape2D_pc1mq"]
+radius = 18.6815
 
-[sub_resource type="Animation" id="Animation_r5pax"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klp71"]
+size = Vector2(579, 141)
 
-[sub_resource type="Animation" id="Animation_w6108"]
-resource_name = "move"
-length = 0.55
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3)]
-}
+[node name="lemon" instance=ExtResource("1_g7tg6")]
+position = Vector2(0, 0)
+scale = Vector2(1, 1)
+collision_layer = 8
+velocity = Vector2(0, 0)
+script = ExtResource("2_to7g2")
+attack_range = 150
+hp_total = 300
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dp572"]
-_data = {
-"RESET": SubResource("Animation_vh0f7"),
-"hit": SubResource("Animation_8joi8"),
-"idle": SubResource("Animation_r5pax"),
-"move": SubResource("Animation_w6108")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx54w"]
-size = Vector2(20, 34)
-
-[node name="lemon" type="CharacterBody2D"]
-scale = Vector2(0.999999, 0.999999)
-collision_mask = 16
-velocity = Vector2(0, 1.0482e+06)
-script = ExtResource("2_602eq")
-
-[node name="CharacterSprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_bj0km")
+[node name="CharacterSprite" parent="." index="0"]
+texture = ExtResource("3_ox18f")
 hframes = 4
 vframes = 4
+frame = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_y5u8u"),
-"enemy": SubResource("AnimationLibrary_dp572")
+"": SubResource("AnimationLibrary_ndwjn")
 }
 
-[node name="Hurt_Box" parent="." instance=ExtResource("3_363a1")]
+[node name="collider" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_5wb3c")
+debug_color = Color(0.0705882, 0.631373, 0.458824, 0.419608)
 
-[node name="aggro_range" type="Area2D" parent="."]
+[node name="Hurt_Box" parent="." index="3"]
+collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_bx54w")
+[node name="CollisionShape2D" parent="Hurt_Box" index="0"]
+shape = SubResource("CircleShape2D_pc1mq")
 
-[connection signal="area_entered" from="Hurt_Box" to="." method="_on_hurt_box_area_entered" flags=18]
-[connection signal="area_entered" from="aggro_range" to="." method="_on_aggro_range_area_entered" flags=18]
-[connection signal="area_exited" from="aggro_range" to="." method="_on_aggro_range_area_exited" flags=18]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aggro_range" index="0"]
+position = Vector2(1, -53.5)
+shape = SubResource("RectangleShape2D_klp71")
+
+[connection signal="has_died" from="." to="." method="_on_has_died"]
+
+[editable path="Hurt_Box"]

@@ -1,11 +1,114 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5rb3fcra0cp3"]
+[gd_scene load_steps=12 format=3 uid="uid://rwpg2s3xj77s"]
 
-[ext_resource type="PackedScene" uid="uid://dl3crcjqmyr0e" path="res://scenes/enemy/enemy.tscn" id="1_b4a6e"]
-[ext_resource type="Script" path="res://scenes/enemy/fish/fish.gd" id="2_jrtn6"]
-[ext_resource type="Texture2D" uid="uid://dfa74ggx6uqvc" path="res://scenes/enemy/fish/Fish-Sheet.png" id="3_2w8qf"]
+[ext_resource type="PackedScene" uid="uid://dtdjuavhyjcln" path="res://scenes/enemy/enemy_base.tscn" id="1_bmq22"]
+[ext_resource type="Script" path="res://scenes/enemy/chicken/chicken.gd" id="2_s1p20"]
+[ext_resource type="Texture2D" uid="uid://dfa74ggx6uqvc" path="res://scenes/enemy/fish/Fish-Sheet.png" id="3_r2bf0"]
 
-[node name="fish" instance=ExtResource("1_b4a6e")]
-script = ExtResource("2_jrtn6")
+[sub_resource type="Animation" id="Animation_7kidk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_fue5g"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_7gv8c"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_0cuag"]
+resource_name = "move"
+length = 0.55
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ndwjn"]
+_data = {
+"RESET": SubResource("Animation_7kidk"),
+"attack": SubResource("Animation_fue5g"),
+"idle": SubResource("Animation_7gv8c"),
+"move": SubResource("Animation_0cuag")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wb3c"]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pc1mq"]
+radius = 18.6815
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klp71"]
+size = Vector2(579, 141)
+
+[node name="fish" instance=ExtResource("1_bmq22")]
+position = Vector2(0, 0)
+scale = Vector2(1, 1)
+collision_layer = 8
+velocity = Vector2(0, 0)
+script = ExtResource("2_s1p20")
+attack_range = 150
+hp_total = 300
 
 [node name="CharacterSprite" parent="." index="0"]
-texture = ExtResource("3_2w8qf")
+texture = ExtResource("3_r2bf0")
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_ndwjn")
+}
+
+[node name="collider" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_5wb3c")
+debug_color = Color(0.0705882, 0.631373, 0.458824, 0.419608)
+
+[node name="Hurt_Box" parent="." index="3"]
+collision_mask = 5
+
+[node name="CollisionShape2D" parent="Hurt_Box" index="0"]
+shape = SubResource("CircleShape2D_pc1mq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aggro_range" index="0"]
+position = Vector2(1, -53.5)
+shape = SubResource("RectangleShape2D_klp71")
+
+[connection signal="has_died" from="." to="." method="_on_has_died"]
+
+[editable path="Hurt_Box"]
