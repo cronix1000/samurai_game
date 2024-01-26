@@ -5,7 +5,7 @@ extends TextureButton
 
 
 func _on_pressed():
-	pass # Replace with function body.
+	queue_free()
 
 
 func _on_timer_timeout():
