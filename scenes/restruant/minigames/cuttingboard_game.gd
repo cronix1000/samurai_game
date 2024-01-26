@@ -16,7 +16,7 @@ var bottom_point = Vector2(0,0)
 var bottom_button
 var top_button 
 var success = 0
-
+signal completed
 
 func _process(delta):
 	if success < 3:
@@ -40,7 +40,9 @@ func _process(delta):
 		done_cutting_image.visible = true
 		label.text = "Congrats"
 		remove_child(lines)
-		
+		await get_tree().create_timer(1.5).timeout
+		emit_signal("completed")
+		queue_free()
 		
 func button_pressed():
 	hits +=1 
@@ -50,6 +52,7 @@ func button_pressed():
 		line.add_point(top_point)
 		line.add_point(bottom_point)
 		line.width = 10
+		line.default_color = "#000000"
 		lines.add_child(line)
 		hits= 0
 		success += 1

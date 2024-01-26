@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d226ile22mt8x"]
+
+[ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_owctp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec3jl"]
+atlas = ExtResource("1_owctp")
+region = Rect2(272, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw48c"]
+atlas = ExtResource("1_owctp")
+region = Rect2(288, 16, 16, 16)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_3ef1o"]
+frames = 2
+frame_0/texture = SubResource("AtlasTexture_ec3jl")
+frame_0/duration = 0.9
+frame_1/texture = SubResource("AtlasTexture_jw48c")
+frame_1/duration = 1.0
+
+[node name="TextureButton" type="TextureButton"]
+offset_left = 29.0
+offset_top = 14.0
+offset_right = 45.0
+offset_bottom = 30.0
+texture_normal = SubResource("AnimatedTexture_3ef1o")

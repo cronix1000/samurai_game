@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://h1enapd4uysa"]
+
+[ext_resource type="Texture2D" uid="uid://dtjtyyjff43oa" path="res://scenes/restruant/minigames/worm1.png" id="1_nqjbt"]
+[ext_resource type="Texture2D" uid="uid://dkb2smlf5trjv" path="res://scenes/restruant/minigames/worm2.png" id="2_pckoq"]
+[ext_resource type="Script" path="res://scenes/restruant/minigames/worm.gd" id="3_4p26j"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_welju"]
+frames = 2
+frame_0/texture = ExtResource("1_nqjbt")
+frame_1/texture = ExtResource("2_pckoq")
+frame_1/duration = 1.0
+
+[node name="worm" type="TextureButton"]
+offset_right = 15.0
+offset_bottom = 15.0
+scale = Vector2(2.62, 2.62)
+texture_normal = SubResource("AnimatedTexture_welju")
+script = ExtResource("3_4p26j")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo7fsdfvhnkv5"]
+
+[ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_8vnkk"]
+[ext_resource type="Script" path="res://scenes/restruant/minigames/wacka_worm.gd" id="2_u63s2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe68b"]
+atlas = ExtResource("1_8vnkk")
+region = Rect2(0, 0, 128, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3of1a"]
+atlas = ExtResource("1_8vnkk")
+region = Rect2(256, 128, 128, 80)
+
+[node name="cutting_board" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Cutting Board" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1157.0
+offset_bottom = 650.0
+texture = SubResource("AtlasTexture_pe68b")
+
+[node name="wacka_worm" type="CanvasLayer" parent="."]
+script = ExtResource("2_u63s2")
+
+[node name="Lettuce" type="TextureRect" parent="wacka_worm"]
+offset_left = 127.0
+offset_top = 48.0
+offset_right = 1042.0
+offset_bottom = 603.0
+texture = SubResource("AtlasTexture_3of1a")
+expand_mode = 1
+
+[node name="WormPoints" type="Line2D" parent="wacka_worm"]
+points = PackedVector2Array(290, 218, 372, 202, 471, 268, 583, 279, 731, 250, 822, 216, 879, 272, 775, 309, 779, 405, 716, 481, 674, 380, 587, 510, 589, 368, 492, 474, 467, 346, 718, 304, 741, 385, 530, 315, 386, 304, 346, 272, 370, 227, 308, 249, 317, 321, 307, 347, 413, 357, 360, 403, 401, 479, 413, 385, 452, 517, 556, 536, 686, 519, 662, 443, 768, 516, 823, 440, 842, 327, 905, 228, 485, 283, 257, 229, 881, 197, 502, 373, 403, 327)
+width = 0.0
