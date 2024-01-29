@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jg1q6esa6dhq" path="res://scenes/enemy/lemon/lemon.tscn" id="4_2mlw4"]
 [ext_resource type="PackedScene" uid="uid://dmyb0jvp843ac" path="res://scenes/enemy/tomato/tomato.tscn" id="5_fpybv"]
 [ext_resource type="PackedScene" uid="uid://rwpg2s3xj77s" path="res://scenes/enemy/fish/fish.tscn" id="5_yxb8y"]
-[ext_resource type="PackedScene" path="res://scenes/main/map_switcher_level_1.tscn" id="6_ae0lb"]
+[ext_resource type="PackedScene" uid="uid://bi6yd36yn103n" path="res://scenes/main/map_switcher_level_1.tscn" id="6_ae0lb"]
 [ext_resource type="Script" path="res://scenes/main/switch_to_restruant.gd" id="7_l1swh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l11k5"]
@@ -701,6 +701,7 @@ position = Vector2(548, -24)
 [node name="map_switcher_level_1" parent="." instance=ExtResource("6_ae0lb")]
 
 [node name="switch_to_restruant" type="Area2D" parent="."]
+monitorable = false
 script = ExtResource("7_l1swh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="switch_to_restruant"]

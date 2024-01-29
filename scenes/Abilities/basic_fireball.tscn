@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv12hvmfwdjvw"]
+[gd_scene load_steps=13 format=3 uid="uid://dv12hvmfwdjvw"]
 
 [ext_resource type="Texture2D" uid="uid://dj8sdpe08w5vs" path="res://scenes/Abilities/Fireball.png" id="1_fgwnm"]
 [ext_resource type="Script" path="res://scenes/Abilities/basic_fireball.gd" id="1_rnepg"]
 [ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="2_aswbv"]
 [ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="4_1edcv"]
+[ext_resource type="AudioStream" uid="uid://ctoqmqiiw0ycn" path="res://scenes/Abilities/Spell_Fire_1.wav" id="5_iib2u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h35tb"]
 atlas = ExtResource("1_fgwnm")
@@ -87,6 +88,7 @@ collision_layer = 2
 shape = SubResource("CircleShape2D_8gtxl")
 
 [node name="attack_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iib2u")
 
 [connection signal="area_entered" from="Hurt_Box" to="." method="_on_hurt_box_area_entered"]
 

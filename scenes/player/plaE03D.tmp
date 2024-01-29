@@ -252,7 +252,6 @@ offset_bottom = 117.0
 
 [node name="attack_sound" type="AudioStreamPlayer" parent="." index="8"]
 stream = ExtResource("8_rcbej")
-volume_db = -15.34
 
 [connection signal="has_died" from="." to="." method="_on_has_died"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

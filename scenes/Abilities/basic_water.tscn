@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgn5gk5rdrki5"]
+[gd_scene load_steps=12 format=3 uid="uid://cgn5gk5rdrki5"]
 
 [ext_resource type="Script" path="res://scenes/Abilities/basic_water.gd" id="1_d4nl4"]
 [ext_resource type="Texture2D" uid="uid://dqdi4ak267e0e" path="res://scenes/Abilities/Frostball.png" id="2_w6eas"]
 [ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="3_t4fvj"]
 [ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="4_xkvpb"]
+[ext_resource type="AudioStream" uid="uid://dnx03okno1fhe" path="res://scenes/Abilities/Spell_Water_1.wav" id="5_fea55"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s62jj"]
 radius = 6.0
@@ -83,6 +84,8 @@ collision_layer = 2
 shape = SubResource("CircleShape2D_8gtxl")
 
 [node name="attack_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fea55")
+volume_db = -19.444
 
 [connection signal="area_entered" from="Hurt_Box" to="." method="_on_hurt_box_area_entered"]
 

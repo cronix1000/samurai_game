@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi6yd36yn103n"]
+[gd_scene load_steps=3 format=3 uid="uid://ci8cd5p8aby6t"]
 
-[ext_resource type="Script" path="res://scenes/main/switch_maps_1.gd" id="1_ft1dp"]
+[ext_resource type="Script" path="res://scenes/main/home_switcher_level_1.gd" id="1_bqieh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a48v"]
 size = Vector2(56, 107)
 
-[node name="map_switcher_level_1" type="Area2D"]
+[node name="home_switcher_level_1" type="Area2D"]
 monitorable = false
-script = ExtResource("1_ft1dp")
+script = ExtResource("1_bqieh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-127, -54)
