@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi6yd36yn103n"]
+
+[ext_resource type="Script" path="res://scenes/main/switch_maps_1.gd" id="1_ft1dp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a48v"]
+size = Vector2(56, 107)
+
+[node name="map_switcher_level_1" type="Area2D"]
+script = ExtResource("1_ft1dp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-127, -54)
+shape = SubResource("RectangleShape2D_7a48v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
