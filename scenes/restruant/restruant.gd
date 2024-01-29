@@ -8,7 +8,8 @@ extends Node2D
 var Inventory : Inventory
 var recipe_keys = ["burger", "salmon", "tomato_patch", "salad", "steak", "baked_fish"]
 var active_minigame
-
+var recipes_done = 0
+var recipes_total = 0
 
 var recipes = []
 func _ready():
@@ -33,7 +34,7 @@ func pick_recipes():
 
 		if all_ingredients_available:
 			recipes.append(GameManager.get_recipe_by_key(recipe))
-
+			recipes_total += 1
 				
 	print("hello")
 	#recipes.append(GameManager.get_recipe_by_key(recipe_keys.pick_random()))
@@ -43,6 +44,8 @@ func pick_recipes():
 func display_recipes():
 	var list_pos = [recipe_pos1.position, recipe_pos2.position, recipe_pos3.position]
 	var i = 0 
+	recipes.shuffle()
+
 	for recipe in recipes:
 		if i < 3:
 			var recipe_holder_inst = recipe_button.instantiate()
@@ -59,5 +62,11 @@ func load_game(ingredients):
 		var item_inv = GameManager.get_item_by_key(item)
 		Inventory.set_item_quantity(Inventory.items.find(item_inv), -quant)
 	print("hello")
+	recipes_done += 1
+	## Add stuff for increasing stats
+	if recipes_done == recipes_total:
+		
+		GameManager.return_to_home()
+		queue_free()
 	
 		

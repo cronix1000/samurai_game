@@ -1,28 +1,28 @@
 [gd_scene load_steps=6 format=3 uid="uid://bakjnwc48ahmy"]
 
 [ext_resource type="Script" path="res://scenes/restruant/minigames/falling_tomato.gd" id="1_o7qw3"]
-[ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="2_eo1nk"]
+[ext_resource type="Texture2D" uid="uid://ct5cbjl7akgpd" path="res://scenes/restruant/minigames/Lemon-Mini_game.png" id="2_vqq3r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lavel"]
-atlas = ExtResource("2_eo1nk")
-region = Rect2(256, 64, 48, 32)
+atlas = ExtResource("2_vqq3r")
+region = Rect2(0, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5hd4"]
-atlas = ExtResource("2_eo1nk")
-region = Rect2(304, 64, 48, 32)
+atlas = ExtResource("2_vqq3r")
+region = Rect2(48, 0, 48, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_po3g0"]
 radius = 11.9982
 height = 40.0
 
-[node name="falling_tomato" type="Node2D"]
+[node name="fallin_lemon" type="Node2D"]
 script = ExtResource("1_o7qw3")
 
-[node name="tomato" type="Sprite2D" parent="."]
+[node name="lemon" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
 texture = SubResource("AtlasTexture_lavel")
 
-[node name="cut_tomato" type="Sprite2D" parent="."]
+[node name="cut_lemon" type="Sprite2D" parent="."]
 visible = false
 texture = SubResource("AtlasTexture_u5hd4")
 
