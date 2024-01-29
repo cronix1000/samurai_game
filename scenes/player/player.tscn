@@ -217,6 +217,8 @@ offset_right = -323.712
 offset_bottom = -57.672
 metadata/_edit_use_anchors_ = true
 
+[node name="attack_sound" type="AudioStreamPlayer" parent="." index="8"]
+
 [connection signal="has_died" from="." to="." method="_on_has_died"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 

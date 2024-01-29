@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgigri6yeqacv"]
+[gd_scene load_steps=2 format=3 uid="uid://cwu58fb2xc54h"]
 
 [ext_resource type="Script" path="res://scenes/Abilities/basic_attack_fireball.gd" id="1_qaass"]
 
-[node name="basic_fireball_attack\'" type="CharacterBody2D"]
+[node name="basic_fireball_attack" type="Node"]
 script = ExtResource("1_qaass")
 
 [node name="Timer" type="Timer" parent="."]

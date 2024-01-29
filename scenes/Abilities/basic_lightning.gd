@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var player = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var attack_sound = $attack_sound
-
+var opposite = 1
 
 var speed = 200
 var controller = null
@@ -15,6 +15,7 @@ func _ready():
 	self_pos = self.global_position
 	aim_pos = controller.get_aim_position()
 	velocity = self_pos.direction_to(aim_pos) * speed
+	velocity.x *= opposite
 	player.play("flying")
 	attack_sound.play()
 	if(velocity.x) < 0:

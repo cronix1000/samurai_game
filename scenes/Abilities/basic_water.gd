@@ -6,7 +6,6 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var attack_sound = $attack_sound
 
-
 var speed = 200
 var controller = null
 

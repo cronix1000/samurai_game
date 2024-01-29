@@ -1,15 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv12hvmfwdjvw"]
+[gd_scene load_steps=10 format=3 uid="uid://cod8h5mlb1375"]
 
-[ext_resource type="Texture2D" uid="uid://dj8sdpe08w5vs" path="res://scenes/Abilities/Fireball.png" id="1_fgwnm"]
-[ext_resource type="Script" path="res://scenes/Abilities/basic_fireball.gd" id="1_rnepg"]
-[ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="2_aswbv"]
-[ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="4_1edcv"]
+[ext_resource type="Texture2D" uid="uid://djpud3xvwnkmn" path="res://scenes/Abilities/Lightning_Bolt02_Y.png" id="1_se68i"]
+[ext_resource type="Script" path="res://scenes/Abilities/basic_lightning.gd" id="1_yi2fy"]
+[ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="3_8dhnw"]
+[ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="4_g23m5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h35tb"]
-atlas = ExtResource("1_fgwnm")
-region = Rect2(0, 0, 192, 64)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s62jj"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6moxg"]
 radius = 6.0
 
 [sub_resource type="Animation" id="Animation_jucpy"]
@@ -50,44 +46,36 @@ _data = {
 "flying": SubResource("Animation_540ic")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sdywp"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvxbg"]
 radius = 8.24621
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8gtxl"]
-radius = 8.0
-
-[node name="basic_fireball" type="CharacterBody2D"]
+[node name="basic_lightning" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_rnepg")
+script = ExtResource("1_yi2fy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_h35tb")
+texture = ExtResource("1_se68i")
 hframes = 6
-vframes = 2
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_s62jj")
+shape = SubResource("CircleShape2D_6moxg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_47ugd")
 }
 
-[node name="Hurt_Box" parent="." instance=ExtResource("4_1edcv")]
+[node name="Hurt_Box" parent="." instance=ExtResource("3_8dhnw")]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hurt_Box" index="0"]
-shape = SubResource("CircleShape2D_sdywp")
+shape = SubResource("CircleShape2D_tvxbg")
 
-[node name="hit_box" parent="." instance=ExtResource("2_aswbv")]
+[node name="hit_box" parent="." instance=ExtResource("4_g23m5")]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
-shape = SubResource("CircleShape2D_8gtxl")
-
 [node name="attack_sound" type="AudioStreamPlayer" parent="."]
-
-[connection signal="area_entered" from="Hurt_Box" to="." method="_on_hurt_box_area_entered"]
 
 [editable path="Hurt_Box"]

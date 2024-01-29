@@ -1,5 +1,6 @@
 extends Entity
 @onready var hitbox = $hit_box
+@onready var attack_sound = $attack_sound
 
 func _process(delta):
 	if(Input.is_action_pressed("Left")):
@@ -10,6 +11,7 @@ func _process(delta):
 		hitbox.scale.x = 1
 	if(Input.is_action_just_pressed("Attack")):
 		attack()
+		attack_sound.play()
 	
 
 func attack():
@@ -19,7 +21,7 @@ func attack():
 	pass
 func _on_has_died():
 	queue_free()
-
+	
 
 func _on_animation_player_animation_finished(anim_name):
 	if(anim_name == "attack()"):
