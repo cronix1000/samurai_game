@@ -6,13 +6,18 @@ var cols = 8
 var rows = 1
 var slots = cols * rows
 var items = []
+var items_quant = []
 
 func _ready():
 	for i in range(slots):
 		items.append(null)
+	for i in range(slots):
+		items_quant.append(0)
 	items[0] = GameManager.get_item_by_key("tomato")
 	items[1] = GameManager.get_item_by_key("meat")
-	items[0].quantity = 5
+	items[2] = GameManager.get_item_by_key("lettuce")
+	items_quant[2] = 2
+	items_quant[0] = 5
 	#emit_signal("items_changed", [0])
 
 func set_item(index, item):
@@ -36,15 +41,15 @@ func remove_item(index):
 	return previous_item
 
 func set_item_quantity(index, amount):
-	items[index]["quantity"] += amount 
-	if items[index]["quantity"] <= 0:
+	items_quant[index] += amount 
+	if items_quant[index] <= 0:
 		remove_item(index)
 	else:
 		emit_signal("items_changed", [index])
 
 func check_inv_for_item_quant(item, quantity):
 	if items.has(item):
-		if(items[items.find(item)]["quantity"] >=quantity):
+		if(items_quant[items.find(item)] >=quantity):
 			return true
 	
 

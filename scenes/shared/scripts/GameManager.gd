@@ -5,6 +5,9 @@ var items
 var recipes
 var maps_1 = []
 
+var attack_damage = 30
+var speed = 175
+
 func _ready():
 	items = read_from_JSON_Item("res://scenes/shared/scripts/items_json.json")
 	recipes = read_from_JSON("res://scenes/shared/scripts/recipes.json")
@@ -54,12 +57,15 @@ func read_from_JSON(path):
 		else:
 			printerr("Invalid Path")
 
-func return_to_home():
+func switch_to_restruant():
 	var restruant = load("res://scenes/restruant/restruant.tscn").instantiate()
+	get_tree().root.add_child(restruant)
+
+func return_to_home():
+	var restruant = load("res://scenes/main/main.tscn").instantiate()
 	get_tree().root.add_child(restruant)
 	
 func switch_maps_1():
-	
 	var map = maps_1.pick_random().instantiate()
 	get_tree().root.add_child(map)
 	

@@ -17,7 +17,7 @@ func _process(delta):
 		add_child(inst_worm)
 		time = 0
 		inst_worm.connect("pressed", Callable(self, "add_point"))
-	if(points > 5):
+	if(points > 2):
 		await get_tree().create_timer(1.5).timeout
 		emit_signal("completed")
 		queue_free()

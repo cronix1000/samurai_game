@@ -22,6 +22,11 @@ func attack():
 func _on_has_died():
 	queue_free()
 	
+func _ready():
+	state_factory = StateFactory.new()
+	change_state("idle")
+	hitbox.damage = GameManager.attack_damage
+	movement_speed = GameManager.speed
 
 func _on_animation_player_animation_finished(anim_name):
 	if(anim_name == "attack()"):

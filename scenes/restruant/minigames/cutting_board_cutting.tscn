@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtisvqhbo3nmr"]
+
+[ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_0g6mt"]
+[ext_resource type="Script" path="res://scenes/restruant/minigames/cuttingboard_game.gd" id="2_gioaa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe68b"]
+atlas = ExtResource("1_0g6mt")
+region = Rect2(0, 0, 128, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehl6f"]
+atlas = ExtResource("1_0g6mt")
+region = Rect2(0, 128, 128, 80)
+
+[node name="cutting_board" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Cutting Board" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1157.0
+offset_bottom = 650.0
+texture = SubResource("AtlasTexture_pe68b")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+script = ExtResource("2_gioaa")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+offset_left = 132.0
+offset_top = 34.0
+offset_right = 1038.0
+offset_bottom = 601.0
+texture = SubResource("AtlasTexture_ehl6f")
+
+[node name="line_top" type="Line2D" parent="CanvasLayer2"]
+unique_name_in_owner = true
+points = PackedVector2Array(268, 167, 307, 138, 367, 122, 464, 105, 530, 134, 575, 159, 609, 174, 693, 165, 788, 162, 837, 164, 884, 176, 918, 224, 957, 302)
+width = 0.0
+
+[node name="line_bottom" type="Line2D" parent="CanvasLayer2"]
+unique_name_in_owner = true
+points = PackedVector2Array(235, 374, 278, 453, 320, 494, 380, 519, 430, 543, 576, 541, 726, 540, 813, 528, 864, 500, 915, 461)
+width = 0.0

@@ -28,4 +28,4 @@ func _on_pressed():
 		get_parent().add_child(mini_game)
 		await mini_game.get_child(1).completed
 	queue_free()
-	emit_signal("run_games", item["ingredients"])
+	emit_signal("run_games", item)
