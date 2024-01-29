@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var tomato = preload("res://scenes/restruant/minigames/falling_tomato.tscn")
+var tomato = preload("res://scenes/restruant/minigames/falling_lemon.tscn")
 
 const TOMATO_SPAWN_TIMER = 1.3
 var time = 0

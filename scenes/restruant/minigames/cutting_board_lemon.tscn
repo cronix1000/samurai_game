@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://doxp3x5cfvv7m"]
+[gd_scene load_steps=5 format=3 uid="uid://cfokwltakwwgm"]
 
-[ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_3ob2i"]
-[ext_resource type="Script" path="res://scenes/restruant/minigames/tomato_fall.gd" id="2_isoiq"]
+[ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_0h6jo"]
+[ext_resource type="Script" path="res://scenes/restruant/minigames/lemon_fall.gd" id="2_8gobs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pe68b"]
-atlas = ExtResource("1_3ob2i")
+atlas = ExtResource("1_0h6jo")
 region = Rect2(0, 0, 128, 112)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ustj1"]
@@ -20,14 +20,14 @@ offset_right = 1157.0
 offset_bottom = 650.0
 texture = SubResource("AtlasTexture_pe68b")
 
-[node name="tomato_fall" type="CanvasLayer" parent="."]
-script = ExtResource("2_isoiq")
+[node name="lemon_fall" type="CanvasLayer" parent="."]
+script = ExtResource("2_8gobs")
 
-[node name="spawn_points" type="Line2D" parent="tomato_fall"]
+[node name="spawn_points" type="Line2D" parent="lemon_fall"]
 points = PackedVector2Array(154, 38, 206, 32, 307, 34, 407, 30, 492, 30, 565, 38, 652, 36, 746, 36, 841, 41, 928, 47, 984, 45)
 width = 0.0
 
-[node name="Label" type="Label" parent="tomato_fall"]
+[node name="Label" type="Label" parent="lemon_fall"]
 offset_left = 326.0
 offset_top = 110.0
 offset_right = 912.0

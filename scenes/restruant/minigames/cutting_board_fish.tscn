@@ -1,18 +1,18 @@
 [gd_scene load_steps=7 format=3 uid="uid://cdt2u33vs5ah3"]
 
-[ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_o5rho"]
-[ext_resource type="Script" path="res://scenes/restruant/minigames/cuttingboard_game.gd" id="2_j6sto"]
+[ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_a6y04"]
+[ext_resource type="Script" path="res://scenes/restruant/minigames/cuttingboard_game.gd" id="2_7uwfa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pe68b"]
-atlas = ExtResource("1_o5rho")
+atlas = ExtResource("1_a6y04")
 region = Rect2(0, 0, 128, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ehl6f"]
-atlas = ExtResource("1_o5rho")
+atlas = ExtResource("1_a6y04")
 region = Rect2(0, 224, 128, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hw8lt"]
-atlas = ExtResource("1_o5rho")
+atlas = ExtResource("1_a6y04")
 region = Rect2(128, 224, 128, 80)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ruvds"]
@@ -30,7 +30,7 @@ offset_bottom = 650.0
 texture = SubResource("AtlasTexture_pe68b")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-script = ExtResource("2_j6sto")
+script = ExtResource("2_7uwfa")
 
 [node name="pre_cutting" type="TextureRect" parent="CanvasLayer2"]
 offset_left = 132.0

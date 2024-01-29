@@ -21,7 +21,7 @@ func _process(delta):
 		await get_tree().create_timer(1.5).timeout
 		emit_signal("completed")
 		queue_free()
-	
+		get_parent().queue_free()
 		
 func add_point():
 	points += 1

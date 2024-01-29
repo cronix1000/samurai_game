@@ -1,8 +1,32 @@
 {
 
 	"tomato": {
-		"name": "Tomato",
+		"name": "tomato",
 		"icon": "tomato.png",
+		"stackable": true,
+		"quantity": 1
+	},
+	"meat": {
+		"name": "meat",
+		"icon": "meat.png",
+		"stackable": true,
+		"quantity": 1
+	},
+	"fish": {
+		"name": "fish",
+		"icon": "fish.png",
+		"stackable": true,
+		"quantity": 1
+	},
+	"lettuce": {
+		"name": "lettuce",
+		"icon": "lettuce.png",
+		"stackable": true,
+		"quantity": 1
+	},
+	"lemon": {
+		"name": "lemon",
+		"icon": "lemon.png",
 		"stackable": true,
 		"quantity": 1
 	},

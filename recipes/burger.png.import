@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4m8oc7pcjmjm"
-path="res://.godot/imported/tomato.png-d93b509853a34794d7dcd3b78ce6680b.ctex"
+uid="uid://cfv3g0lb0eakl"
+path="res://.godot/imported/burger.png-c83046367944a2083e5caa35b1f3555b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/tomato.png"
-dest_files=["res://.godot/imported/tomato.png-d93b509853a34794d7dcd3b78ce6680b.ctex"]
+source_file="res://recipes/burger.png"
+dest_files=["res://.godot/imported/burger.png-c83046367944a2083e5caa35b1f3555b.ctex"]
 
 [params]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dccu0js56sxvo"]
+[gd_scene load_steps=7 format=3 uid="uid://dccu0js56sxvo"]
 
 [ext_resource type="Script" path="res://scenes/restruant/recipe_holder.gd" id="1_fd0du"]
 [ext_resource type="Texture2D" uid="uid://bpja2rab8t1pj" path="res://scenes/player/inventory/Raven Fantasy GUI Starter Set.png" id="2_fokwv"]
+[ext_resource type="Texture2D" uid="uid://cfv3g0lb0eakl" path="res://recipes/burger.png" id="3_ugymu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_73t3f"]
 atlas = ExtResource("2_fokwv")
@@ -14,24 +15,22 @@ region = Rect2(240, 32, 48, 16)
 [sub_resource type="LabelSettings" id="LabelSettings_cskvc"]
 font_size = 12
 
-[node name="recipe_holder" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_fd0du")
-
-[node name="background" type="TextureButton" parent="."]
-layout_mode = 0
+[node name="background" type="TextureButton"]
 offset_right = 48.0
 offset_bottom = 17.0
 texture_normal = SubResource("AtlasTexture_73t3f")
 texture_pressed = SubResource("AtlasTexture_1iqbl")
+script = ExtResource("1_fd0du")
 
 [node name="recipe" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
-offset_right = 20.0
-offset_bottom = 14.0
+offset_right = 18.0
+offset_bottom = 18.0
+scale = Vector2(0.84, 0.84)
+texture = ExtResource("3_ugymu")
 
 [node name="description" type="Label" parent="."]
 layout_mode = 0
@@ -43,4 +42,5 @@ scale = Vector2(0.285, 0.285)
 text = "asdasd"
 label_settings = SubResource("LabelSettings_cskvc")
 
-[connection signal="pressed" from="background" to="." method="_on_background_pressed"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="ready" from="recipe" to="." method="_on_recipe_ready"]

@@ -25,5 +25,7 @@ func _unhandled_input(event):
 	if(Input.is_action_just_pressed("Attack")):
 		if(slider.value > 40 && slider.value < 60):
 			output_label.text = "perfect"
+			get_parent().queue_free()
 		else:
 			output_label.text = "so close"
+			

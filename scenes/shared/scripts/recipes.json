@@ -1,0 +1,81 @@
+{
+	"steak": {
+		"ingredients": [
+			"meat",
+			"meat",
+			"meat"
+		],
+		"ingredients_comp": {
+			"meat": 3
+		}
+	},
+	"salmon": {
+		"ingredients": [
+			"fish",
+			"fish"
+		],
+		"ingredients_comp": {
+			"fish": 2
+		}
+	},
+	"cauliflower": {
+		"ingredients": [
+			"lettuce"
+		],
+		"ingredients_comp": {
+			"lettuce": 1
+		}
+	},
+	"tomato_patch": {
+		"ingredients": [
+			"tomato",
+			"tomato",
+			"tomato",
+			"tomato",
+			"tomato"
+		],
+		"ingredients_comp": {
+			"tomato": 5
+		}
+	},
+	"salad": {
+		"ingredients": [
+			"tomato",
+			"tomato",
+			"tomato",
+			"lettuce",
+			"lemon"
+		],
+		"ingredients_comp": {
+			"tomato": 3,
+			"lettuce": 1,
+			"lemon": 1
+		}
+	},
+	"burger": {
+		"ingredients": [
+			"lettuce",
+			"lettuce",
+			"meat",
+			"meat",
+			"lemon"
+		],
+		"ingredients_comp": {
+			"lettuce": 2, 
+			"meat": 2,
+			"lemon": 1
+		}
+	},
+	"baked_fish": {
+		"ingredients": [
+			"fish",
+			"lettuce",
+			"lemon"
+		],
+		"ingredients_comp": {
+			"fish": 1,
+			"lettuce": 1,
+			"lemon": 1
+		}
+	}
+}
