@@ -1,28 +1,34 @@
-extends CharacterBody2D
+extends EnemyBase
+@export var attack_range := 150
 
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var item 
+var look_direction = 1
+var fire_ball = load_ability("basic_water_attack")
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	if aggro_target:
+		if global_position.distance_to(aggro_target.position) <= attack_range : 
+			attack()
+		else:
+			move_to_player()
+			change_state("run")
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+func attack():
+	fire_ball.basic_attack(self, 1.2)
+	
+func get_aim_position():
+	if(aggro_target):
+		return aggro_target.position
+	
+		
+func move_to_player():
+	if aggro_target.position.x > global_position.x:
+		move_right()	
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		move_left()	
 
-	move_and_slide()
+
+func _on_has_died():
+	item = GameManager.get_item_by_key("fish")
+	inventory.add_item(item)
+	queue_free()

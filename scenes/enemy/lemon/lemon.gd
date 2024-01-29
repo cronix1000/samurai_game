@@ -3,7 +3,7 @@ extends EnemyBase
 
 var item 
 var look_direction = 1
-var fire_ball = load_ability("basic_lemon_attack")
+var fire_ball = load_ability("basic_lightning_attack")
 
 func _physics_process(delta):
 	if aggro_target:
