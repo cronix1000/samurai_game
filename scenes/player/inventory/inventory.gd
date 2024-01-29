@@ -32,6 +32,7 @@ func add_item(item):
 		set_item_quantity(items.find(item), 1)
 	else:
 		items[index] = item
+		set_item_quantity(items.find(item), 1)
 	emit_signal("items_changed", [index])
 
 func remove_item(index):
