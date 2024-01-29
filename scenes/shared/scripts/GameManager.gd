@@ -68,7 +68,3 @@ func return_to_home():
 func switch_maps_1():
 	var map = maps_1.pick_random().instantiate()
 	get_tree().root.add_child(map)
-	
-	
-	
-	

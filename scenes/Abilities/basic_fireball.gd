@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var aim_pos
+@onready var aim_pos 
 @onready var self_pos
 @onready var player = $AnimationPlayer
 @onready var sprite = $Sprite2D

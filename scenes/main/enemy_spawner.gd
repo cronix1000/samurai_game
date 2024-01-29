@@ -1,20 +1,33 @@
 extends Node2D
 
-
 @export var spawn : PackedScene
-@export var tile_map : TileMap
-var spawns = 0
-var possible_spawns = []
+@export var possible_spawns : Array = []
+@export var childrenCount : int
+@export var outsideCordLeft : int
+@export var outsideCordRight : int
+@onready var player = $"../player"
+var children = []
 
 func _ready():
-	possible_spawns = tile_map.get_used_cells(0)
+	var points = get_children()
+	for point in points:
+		if point is Marker2D:
+			possible_spawns.append(point)
 
+func _process(_delta):
+	children = get_children()
+	
+	if player.position.x < outsideCordLeft or player.position.x > outsideCordRight:
+		for child in children:
+			if child is CharacterBody2D:
+				child.queue_free()
 
 func _on_timer_timeout():
-	spawn_enemy()
-	
+	if player.position.x > outsideCordLeft and player.position.x < outsideCordRight:
+		spawn_enemy()
+
 func spawn_enemy():
-	var spawn_inst = spawn.instantiate()
-	spawn_inst.position = tile_map.map_to_local(possible_spawns.pick_random()) + Vector2(0, -5)
-	add_child(spawn_inst)
-	
+	if children.size() < childrenCount:
+		var spawn_inst = spawn.instantiate()
+		add_child(spawn_inst)
+		spawn_inst.position = possible_spawns.pick_random().position

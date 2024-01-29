@@ -1,34 +1,55 @@
-extends Entity
-@onready var hitbox = $hit_box
-@onready var attack_sound = $attack_sound
+extends CharacterBody2D
 
-func _process(delta):
-	if(Input.is_action_pressed("Left")):
-		move_left()
-		hitbox.scale.x = -1
-	if(Input.is_action_pressed("Right")):
-		move_right()
-		hitbox.scale.x = 1
-	if(Input.is_action_just_pressed("Attack")):
+@onready var attack_sound = $attack_sound
+@onready var animation = $AnimationPlayer
+@onready var sprite = $CharacterSprite
+@onready var hitbox = $HitBox
+
+const SPEED = 200
+var direction
+var attacking : bool
+var damage : int = 1
+
+func _ready():
+	animation.play("idle")
+	sprite.flip_h = true
+	hitbox.scale.x = -1
+	hitbox.monitoring = false
+
+func _process(_delta):
+	if Input.is_action_just_pressed("Attack") and !attacking:
+		attacking = true
+		hitbox.monitoring = true
 		attack()
 		attack_sound.play()
+
+func _physics_process(_delta):
+	direction = Input.get_axis("Left", "Right")
 	
+	if direction < 0:
+		sprite.flip_h = true
+		hitbox.scale.x = -1
+	elif direction > 0 :
+		sprite.flip_h = false
+		hitbox.scale.x = 1
+
+	if direction and !attacking:
+		velocity.x = direction * SPEED
+		animation.play("move")
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if !attacking:
+			animation.play("idle")
+	
+	move_and_slide()
 
 func attack():
-	player.play("attack")
+	animation.play("attack")
 	await get_tree().create_timer(0.35).timeout
-	change_state("idle")
-	pass
-func _on_has_died():
-	queue_free()
-	
-func _ready():
-	state_factory = StateFactory.new()
-	change_state("idle")
-	hitbox.damage = GameManager.attack_damage
-	movement_speed = GameManager.speed
+	attacking = false
+	hitbox.monitoring = false
+	animation.play("idle")
 
-func _on_animation_player_animation_finished(anim_name):
-	if(anim_name == "attack()"):
-		#change_state("idle")
-		pass
+func _on_hit_box_body_entered(body):
+	if body.has_method("takeDamage"):
+		body.takeDamage(damage)
