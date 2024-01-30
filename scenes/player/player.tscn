@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckhxoragbtjx7"]
+[gd_scene load_steps=17 format=3 uid="uid://ckhxoragbtjx7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_o7j26"]
 [ext_resource type="Texture2D" uid="uid://dxajt14yc4u6d" path="res://scenes/player/Character-Sheet.png" id="3_6xqr4"]
 [ext_resource type="PackedScene" uid="uid://cd0oigkypo4lb" path="res://scenes/player/inventory/inventory_full.tscn" id="4_tkfdk"]
 [ext_resource type="PackedScene" uid="uid://boctsrgakcum1" path="res://scenes/player/inventory/slot_container_generic.tscn" id="5_dg324"]
+[ext_resource type="Script" path="res://scenes/player/heart_container.gd" id="6_qx26n"]
+[ext_resource type="Texture2D" uid="uid://bpja2rab8t1pj" path="res://scenes/player/inventory/Raven Fantasy GUI Starter Set.png" id="6_y5ou7"]
 [ext_resource type="AudioStream" uid="uid://bguxlig24ivi5" path="res://scenes/player/Spell_Wind_1.wav" id="8_rcbej"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li0xk"]
@@ -73,6 +75,35 @@ tracks/4/keys = {
 "values": [5]
 }
 
+[sub_resource type="Animation" id="Animation_b451l"]
+resource_name = "attack"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8, 9, 5]
+}
+
 [sub_resource type="Animation" id="Animation_fn8qx"]
 resource_name = "idle"
 loop_mode = 1
@@ -131,35 +162,6 @@ tracks/2/keys = {
 "values": [Vector2(5.94816, 3.82602)]
 }
 
-[sub_resource type="Animation" id="Animation_b451l"]
-resource_name = "attack"
-length = 0.25
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CharacterSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [5, 6, 7, 8, 9, 5]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kkuvk"]
 _data = {
 "RESET": SubResource("Animation_n6edj"),
@@ -173,6 +175,10 @@ size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_710rl"]
 size = Vector2(24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbt73"]
+atlas = ExtResource("6_y5ou7")
+region = Rect2(0, 96, 16, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 2
@@ -211,10 +217,10 @@ shape = SubResource("RectangleShape2D_710rl")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory_full" parent="CanvasLayer" instance=ExtResource("4_tkfdk")]
-offset_left = 1.0
-offset_top = 66.0
-offset_right = 333.0
-offset_bottom = 93.0
+offset_left = 8.0
+offset_top = 132.0
+offset_right = 379.0
+offset_bottom = 190.0
 
 [node name="slot_container_generic" parent="CanvasLayer" instance=ExtResource("5_dg324")]
 anchors_preset = -1
@@ -222,5 +228,36 @@ anchor_right = 0.231
 anchor_bottom = 0.083
 offset_right = -266.112
 offset_bottom = -53.784
+
+[node name="HealthBar" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.21
+anchor_bottom = 0.216
+offset_left = 12.0
+offset_top = 196.0
+offset_right = 138.08
+offset_bottom = 133.032
+grow_vertical = 0
+script = ExtResource("6_qx26n")
+
+[node name="Full_Heart1" type="TextureRect" parent="CanvasLayer/HealthBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_tbt73")
+
+[node name="Full_Heart2" type="TextureRect" parent="CanvasLayer/HealthBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_tbt73")
+
+[node name="Full_Heart3" type="TextureRect" parent="CanvasLayer/HealthBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_tbt73")
+
+[node name="Full_Heart4" type="TextureRect" parent="CanvasLayer/HealthBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_tbt73")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

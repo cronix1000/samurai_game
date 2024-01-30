@@ -7,6 +7,7 @@ var aim_pos
 
 var speed = 200
 var setDirection : bool
+@export var damage = 25
 
 func _ready():
 	player.play("flying")
@@ -30,3 +31,5 @@ func _physics_process(delta):
 func _on_hit_box_body_entered(body):
 	if body.is_in_group("player"):
 		queue_free()
+		if body.has_method("takeDamage"):
+			body.takeDamage(damage)

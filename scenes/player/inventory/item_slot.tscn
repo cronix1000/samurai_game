@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dilfvpndalcgy" path="res://scenes/player/inventory/Inventory_slot.png" id="2_2svqy"]
 
 [node name="item_slot" type="TextureRect"]
-custom_minimum_size = Vector2(55, 55)
+custom_minimum_size = Vector2(100, 100)
 anchors_preset = -1
 anchor_left = 0.00173611
 anchor_top = 0.00154321
-anchor_right = 0.124868
-anchor_bottom = 0.190543
-offset_right = -89.848
-offset_bottom = -77.472
+anchor_right = 0.082125
+anchor_bottom = 0.146444
+offset_right = 0.391998
+offset_bottom = 0.103989
 script = ExtResource("1_q8nxl")
 metadata/_edit_use_anchors_ = true
 
@@ -31,9 +31,10 @@ grow_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 49.0
-offset_bottom = 49.0
+offset_right = 104.0
+offset_bottom = 105.0
 texture = ExtResource("2_2svqy")
+expand_mode = 1
 
 [node name="item_icon" type="TextureRect" parent="."]
 layout_mode = 1
@@ -42,10 +43,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -17.1408
-offset_top = -18.3088
-offset_right = 13.8592
-offset_bottom = -3.30882
+offset_left = -22.0
+offset_top = -24.0
+offset_right = 27.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.64706)

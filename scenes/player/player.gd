@@ -4,16 +4,22 @@ extends CharacterBody2D
 @onready var animation = $AnimationPlayer
 @onready var sprite = $CharacterSprite
 @onready var hitbox = $HitBox
+@onready var health_bar = $CanvasLayer/HealthBar
 
 const SPEED = 200
 var direction
 var attacking : bool
+var health = 16
+var hit = false
+
+signal damage_taken(health)
 
 func _ready():
 	animation.play("idle")
 	sprite.flip_h = true
 	hitbox.scale.x = -1
 	hitbox.monitoring = false
+	connect("damage_taken", Callable(health_bar, "on_health_updated"))
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Attack") and !attacking:
@@ -52,3 +58,15 @@ func attack():
 func _on_hit_box_body_entered(body):
 	if body.has_method("takeDamage"):
 		body.takeDamage(GameManager.attack_damage)
+		
+func takeDamage(damage):
+	hit = true
+	health -= damage
+	emit_signal("damage_taken", health)
+	await get_tree().create_timer(0.2).timeout
+	
+	if health <= 0:
+		#Return to restruant
+		queue_free()
+	
+	hit = false
