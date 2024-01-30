@@ -5,7 +5,7 @@ var items
 var recipes
 var maps_1 = []
 
-var attack_damage = 30
+var attack_damage = 1
 var speed = 175
 
 func _ready():

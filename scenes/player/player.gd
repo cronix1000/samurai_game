@@ -8,7 +8,6 @@ extends CharacterBody2D
 const SPEED = 200
 var direction
 var attacking : bool
-var damage : int = 1
 
 func _ready():
 	animation.play("idle")
@@ -52,4 +51,4 @@ func attack():
 
 func _on_hit_box_body_entered(body):
 	if body.has_method("takeDamage"):
-		body.takeDamage(damage)
+		body.takeDamage(GameManager.attack_damage)
