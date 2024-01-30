@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckhxoragbtjx7"]
+[gd_scene load_steps=20 format=3 uid="uid://ckhxoragbtjx7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_o7j26"]
 [ext_resource type="Texture2D" uid="uid://dxajt14yc4u6d" path="res://scenes/player/Character-Sheet.png" id="3_6xqr4"]
+[ext_resource type="AudioStream" uid="uid://c6c4tca1x303r" path="res://scenes/player/sword-slash-and-swing-185432 (1).mp3" id="3_ecqyt"]
 [ext_resource type="PackedScene" uid="uid://cd0oigkypo4lb" path="res://scenes/player/inventory/inventory_full.tscn" id="4_tkfdk"]
 [ext_resource type="PackedScene" uid="uid://boctsrgakcum1" path="res://scenes/player/inventory/slot_container_generic.tscn" id="5_dg324"]
 [ext_resource type="Script" path="res://scenes/player/heart_container.gd" id="6_qx26n"]
 [ext_resource type="Texture2D" uid="uid://bpja2rab8t1pj" path="res://scenes/player/inventory/Raven Fantasy GUI Starter Set.png" id="6_y5ou7"]
-[ext_resource type="AudioStream" uid="uid://bguxlig24ivi5" path="res://scenes/player/Spell_Wind_1.wav" id="8_rcbej"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li0xk"]
 atlas = ExtResource("3_6xqr4")
@@ -176,7 +176,19 @@ size = Vector2(16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_710rl"]
 size = Vector2(24, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbt73"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4av3"]
+atlas = ExtResource("6_y5ou7")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jknu"]
+atlas = ExtResource("6_y5ou7")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obilc"]
+atlas = ExtResource("6_y5ou7")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hg40"]
 atlas = ExtResource("6_y5ou7")
 region = Rect2(0, 96, 16, 16)
 
@@ -197,8 +209,8 @@ libraries = {
 }
 
 [node name="attack_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_rcbej")
-volume_db = -15.34
+stream = ExtResource("3_ecqyt")
+volume_db = -23.575
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.57628e-07, 6.00001)
@@ -243,21 +255,21 @@ script = ExtResource("6_qx26n")
 [node name="Full_Heart1" type="TextureRect" parent="CanvasLayer/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_tbt73")
+texture = SubResource("AtlasTexture_k4av3")
 
 [node name="Full_Heart2" type="TextureRect" parent="CanvasLayer/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_tbt73")
+texture = SubResource("AtlasTexture_7jknu")
 
 [node name="Full_Heart3" type="TextureRect" parent="CanvasLayer/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_tbt73")
+texture = SubResource("AtlasTexture_obilc")
 
 [node name="Full_Heart4" type="TextureRect" parent="CanvasLayer/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_tbt73")
+texture = SubResource("AtlasTexture_4hg40")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

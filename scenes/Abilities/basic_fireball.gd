@@ -7,7 +7,7 @@ var aim_pos
 
 var speed = 200
 var setDirection : bool
-@export var damage = 25
+@export var damage = 4
 
 func _ready():
 	player.play("flying")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6c4tca1x303r"
+path="res://.godot/imported/sword-slash-and-swing-185432 (1).mp3-5c0e3ef810bcf2d5a9121999112c66f3.mp3str"
+
+[deps]
+
+source_file="res://scenes/player/sword-slash-and-swing-185432 (1).mp3"
+dest_files=["res://.godot/imported/sword-slash-and-swing-185432 (1).mp3-5c0e3ef810bcf2d5a9121999112c66f3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
