@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://bduj53jy7t20j"]
+[gd_scene load_steps=29 format=3 uid="uid://bduj53jy7t20j"]
 
 [ext_resource type="Texture2D" uid="uid://b8s00ab6eeilu" path="res://scenes/main/Lights.png" id="1_jhc6h"]
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_qsmsp"]
+[ext_resource type="PackedScene" uid="uid://b1b7vulj8cm8h" path="res://scenes/transistion/transition.tscn" id="2_0bom8"]
 [ext_resource type="Texture2D" uid="uid://c5jj4eyaiowp0" path="res://scenes/main/Tile-Sheet.png" id="2_s8mlc"]
 [ext_resource type="PackedScene" uid="uid://dmyb0jvp843ac" path="res://scenes/enemy/tomato/tomato.tscn" id="3_gv0or"]
 [ext_resource type="PackedScene" uid="uid://bjuhh8ray6jmj" path="res://scenes/enemy/lettuce/lettuce.tscn" id="4_wlofi"]
@@ -692,6 +693,8 @@ theme_override_font_sizes/font_size = 20
 text = "Quit
 "
 flat = true
+
+[node name="Transition" parent="." instance=ExtResource("2_0bom8")]
 
 [connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

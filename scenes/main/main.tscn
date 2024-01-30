@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dcpwfdkuc3ik0"]
+[gd_scene load_steps=26 format=3 uid="uid://dcpwfdkuc3ik0"]
 
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_bg4ca"]
 [ext_resource type="Texture2D" uid="uid://c5jj4eyaiowp0" path="res://scenes/main/Tile-Sheet.png" id="1_t85kn"]
 [ext_resource type="Script" path="res://scenes/main/switch_maps_1.gd" id="2_2nhrg"]
 [ext_resource type="PackedScene" uid="uid://ckhxoragbtjx7" path="res://scenes/player/player.tscn" id="2_er34e"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://jg1q6esa6dhq" path="res://scenes/enemy/lemon/lemon.tscn" id="8_i7v3e"]
 [ext_resource type="PackedScene" uid="uid://dw7jaerjt1qvp" path="res://scenes/enemy/chicken/chicken.tscn" id="9_x36qn"]
 [ext_resource type="PackedScene" uid="uid://rwpg2s3xj77s" path="res://scenes/enemy/fish/fish.tscn" id="10_5ed33"]
+[ext_resource type="PackedScene" uid="uid://b1b7vulj8cm8h" path="res://scenes/transistion/transition.tscn" id="14_qlbjh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l11k5"]
 texture = ExtResource("1_t85kn")
@@ -710,6 +712,7 @@ size = Vector2(32, 66)
 [sub_resource type="CanvasTexture" id="CanvasTexture_qpf5i"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_bg4ca")
 
 [node name="Decoration" type="TileMap" parent="."]
 texture_filter = 1
@@ -928,6 +931,8 @@ z_index = -1
 position = Vector2(-846.5, -120.5)
 scale = Vector2(4621, 545)
 texture = SubResource("CanvasTexture_qpf5i")
+
+[node name="Transition" parent="." instance=ExtResource("14_qlbjh")]
 
 [connection signal="body_entered" from="map_switcher_level_1" to="map_switcher_level_1" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="map_switcher_level_1" to="map_switcher_level_1" method="_on_body_exited"]
