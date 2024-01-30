@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://tmimvi1i64u7"]
+[gd_scene load_steps=3 format=3 uid="uid://tmimvi1i64u7"]
 
 [ext_resource type="Script" path="res://scenes/player/inventory/item_slot.gd" id="1_q8nxl"]
-[ext_resource type="Texture2D" uid="uid://bpja2rab8t1pj" path="res://scenes/player/inventory/Raven Fantasy GUI Starter Set.png" id="1_uhxhv"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_udcso"]
-atlas = ExtResource("1_uhxhv")
-region = Rect2(0, 64, 16, 16)
+[ext_resource type="Texture2D" uid="uid://dilfvpndalcgy" path="res://scenes/player/inventory/Inventory_slot.png" id="2_2svqy"]
 
 [node name="item_slot" type="TextureRect"]
 custom_minimum_size = Vector2(55, 55)
@@ -16,7 +12,6 @@ anchor_right = 0.124868
 anchor_bottom = 0.190543
 offset_right = -89.848
 offset_bottom = -77.472
-scale = Vector2(2.7029, 2.72)
 script = ExtResource("1_q8nxl")
 metadata/_edit_use_anchors_ = true
 
@@ -36,10 +31,9 @@ grow_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 49.0
 offset_bottom = 49.0
-scale = Vector2(1.33333, 0.931507)
-texture = SubResource("AtlasTexture_udcso")
+texture = ExtResource("2_2svqy")
 
 [node name="item_icon" type="TextureRect" parent="."]
 layout_mode = 1
