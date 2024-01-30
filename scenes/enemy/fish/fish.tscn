@@ -184,8 +184,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_5wb3c"]
 radius = 16.0312
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ch27"]
-size = Vector2(208, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mja2v"]
+size = Vector2(360, 20)
 
 [node name="fish" type="CharacterBody2D"]
 collision_layer = 8
@@ -211,7 +211,7 @@ debug_color = Color(0.0705882, 0.631373, 0.458824, 0.419608)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-shape = SubResource("RectangleShape2D_7ch27")
+shape = SubResource("RectangleShape2D_mja2v")
 
 [connection signal="has_died" from="." to="." method="_on_has_died"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
