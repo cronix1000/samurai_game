@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var menu : bool
+
 var item 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $CharacterSprite
@@ -12,19 +14,21 @@ var health = 5
 
 func _ready():
 	animation.play("idle")
-	direction = get_parent().position + Vector2(randi_range(-150,150),0)
+	if !menu:
+		direction = get_parent().position + Vector2(randi_range(-150,150),0)
 
 func _process(_delta):
-	if global_position.x - direction.x < 0:
-		sprite.flip_h = true
-	elif global_position.x - direction.x  > 0 :
-		sprite.flip_h = false
-	
-	if reached:
-		getDestination()
+	if !menu:
+		if global_position.x - direction.x < 0:
+			sprite.flip_h = true
+		elif global_position.x - direction.x  > 0 :
+			sprite.flip_h = false
+		
+		if reached:
+			getDestination()
 
 func _physics_process(delta):
-	if !hit:
+	if !hit and !menu:
 		if global_position.distance_to(direction) > 0.5 and !reached:
 			global_position = global_position.move_toward(direction,SPEED * delta)
 			animation.play("move")

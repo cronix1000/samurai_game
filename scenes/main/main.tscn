@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dcpwfdkuc3ik0"]
+[gd_scene load_steps=24 format=3 uid="uid://dcpwfdkuc3ik0"]
 
 [ext_resource type="Texture2D" uid="uid://c5jj4eyaiowp0" path="res://scenes/main/Tile-Sheet.png" id="1_t85kn"]
 [ext_resource type="Script" path="res://scenes/main/switch_maps_1.gd" id="2_2nhrg"]
@@ -707,6 +707,8 @@ size = Vector2(26, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k53e2"]
 size = Vector2(32, 66)
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_qpf5i"]
+
 [node name="main" type="Node2D"]
 
 [node name="Decoration" type="TileMap" parent="."]
@@ -919,6 +921,13 @@ position = Vector2(-1555, 2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 position = Vector2(-13, -23)
 shape = SubResource("RectangleShape2D_k53e2")
+
+[node name="bg" type="Sprite2D" parent="."]
+modulate = Color(0.4, 0.552941, 0.662745, 1)
+z_index = -1
+position = Vector2(-846.5, -120.5)
+scale = Vector2(4621, 545)
+texture = SubResource("CanvasTexture_qpf5i")
 
 [connection signal="body_entered" from="map_switcher_level_1" to="map_switcher_level_1" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="map_switcher_level_1" to="map_switcher_level_1" method="_on_body_exited"]

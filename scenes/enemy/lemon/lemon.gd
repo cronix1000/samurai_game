@@ -1,6 +1,8 @@
 extends EnemyBase
+
 @export var attack_range := 150
 @export var fire_ball : PackedScene
+@export var menu : bool
 
 var item 
 @onready var animation = $AnimationPlayer
@@ -16,20 +18,22 @@ var health = 5
 
 func _ready():
 	animation.play("idle")
-	direction = get_parent().position + Vector2(randi_range(-150,150),0)
+	if !menu:
+		direction = get_parent().position + Vector2(randi_range(-150,150),0)
 
 func _process(_delta):
-	if !attacking:
-		if global_position.x - direction.x < 0:
-			sprite.flip_h = true
-		elif global_position.x - direction.x  > 0 :
-			sprite.flip_h = false
-	
-	if reached:
-		getDestination()
+	if !menu:
+		if !attacking:
+			if global_position.x - direction.x < 0:
+				sprite.flip_h = true
+			elif global_position.x - direction.x  > 0 :
+				sprite.flip_h = false
+		
+		if reached:
+			getDestination()
 
 func _physics_process(delta):
-	if !hit and !attacking:
+	if !hit and !attacking and !menu:
 		if global_position.distance_to(direction) > 0.5 and !reached:
 			global_position = global_position.move_toward(direction,SPEED * delta)
 			animation.play("move")
@@ -70,7 +74,7 @@ func attack():
 		await get_tree().create_timer(randi_range(2,3)).timeout
 
 func _on_attack_range_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and !menu:
 		if body.position.x > global_position.x:
 			sprite.flip_h = true
 		else:
