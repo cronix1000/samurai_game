@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv12hvmfwdjvw"]
+[gd_scene load_steps=11 format=3 uid="uid://dv12hvmfwdjvw"]
 
 [ext_resource type="Texture2D" uid="uid://dj8sdpe08w5vs" path="res://scenes/Abilities/Fireball.png" id="1_fgwnm"]
 [ext_resource type="Script" path="res://scenes/Abilities/basic_fireball.gd" id="1_rnepg"]
 [ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="2_aswbv"]
-[ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="4_1edcv"]
 [ext_resource type="AudioStream" uid="uid://ctoqmqiiw0ycn" path="res://scenes/Abilities/Spell_Fire_1.wav" id="5_iib2u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h35tb"]
@@ -30,7 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_540ic"]
 resource_name = "flying"
-length = 1.2
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -39,10 +38,10 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(0, 1), Vector2i(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_47ugd"]
@@ -50,9 +49,6 @@ _data = {
 "RESET": SubResource("Animation_jucpy"),
 "flying": SubResource("Animation_540ic")
 }
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_sdywp"]
-radius = 8.24621
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8gtxl"]
 radius = 8.0
@@ -74,13 +70,6 @@ libraries = {
 "": SubResource("AnimationLibrary_47ugd")
 }
 
-[node name="Hurt_Box" parent="." instance=ExtResource("4_1edcv")]
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" parent="Hurt_Box" index="0"]
-shape = SubResource("CircleShape2D_sdywp")
-
 [node name="hit_box" parent="." instance=ExtResource("2_aswbv")]
 collision_layer = 2
 
@@ -91,7 +80,4 @@ shape = SubResource("CircleShape2D_8gtxl")
 stream = ExtResource("5_iib2u")
 volume_db = -20.8
 
-[connection signal="area_entered" from="Hurt_Box" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]
-
-[editable path="Hurt_Box"]

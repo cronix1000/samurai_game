@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgn5gk5rdrki5"]
+[gd_scene load_steps=10 format=3 uid="uid://cgn5gk5rdrki5"]
 
 [ext_resource type="Script" path="res://scenes/Abilities/basic_water.gd" id="1_d4nl4"]
 [ext_resource type="Texture2D" uid="uid://dqdi4ak267e0e" path="res://scenes/Abilities/Frostball.png" id="2_w6eas"]
-[ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="3_t4fvj"]
 [ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="4_xkvpb"]
 [ext_resource type="AudioStream" uid="uid://dnx03okno1fhe" path="res://scenes/Abilities/Spell_Water_1.wav" id="5_fea55"]
 
@@ -47,9 +46,6 @@ _data = {
 "flying": SubResource("Animation_540ic")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sdywp"]
-radius = 8.24621
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_8gtxl"]
 radius = 8.0
 
@@ -70,13 +66,6 @@ libraries = {
 "": SubResource("AnimationLibrary_47ugd")
 }
 
-[node name="Hurt_Box" parent="." instance=ExtResource("3_t4fvj")]
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" parent="Hurt_Box" index="0"]
-shape = SubResource("CircleShape2D_sdywp")
-
 [node name="hit_box" parent="." instance=ExtResource("4_xkvpb")]
 collision_layer = 2
 
@@ -87,6 +76,4 @@ shape = SubResource("CircleShape2D_8gtxl")
 stream = ExtResource("5_fea55")
 volume_db = -19.444
 
-[connection signal="area_entered" from="Hurt_Box" to="." method="_on_hurt_box_area_entered"]
-
-[editable path="Hurt_Box"]
+[connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]

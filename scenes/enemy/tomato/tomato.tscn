@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmyb0jvp843ac"]
+[gd_scene load_steps=13 format=3 uid="uid://dmyb0jvp843ac"]
 
 [ext_resource type="Script" path="res://scenes/enemy/tomato/tomato.gd" id="2_vwi13"]
+[ext_resource type="PackedScene" uid="uid://dv12hvmfwdjvw" path="res://scenes/Abilities/basic_fireball.tscn" id="2_yqa7g"]
 [ext_resource type="Animation" uid="uid://bgl1ep3pf8a1d" path="res://scenes/enemy/hit.res" id="3_3ar4v"]
 [ext_resource type="Texture2D" uid="uid://b6teeq8shlleo" path="res://scenes/enemy/tomato/Tomato-Sheet.png" id="3_f4mrp"]
 
@@ -154,6 +155,7 @@ size = Vector2(360, 20)
 collision_layer = 8
 collision_mask = 16
 script = ExtResource("2_vwi13")
+fire_ball = ExtResource("2_yqa7g")
 hp_total = 100
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]

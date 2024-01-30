@@ -1,5 +1,6 @@
 extends EnemyBase
 @export var attack_range := 150
+@export var fire_ball : PackedScene
 
 var item 
 @onready var animation = $AnimationPlayer
@@ -12,7 +13,6 @@ var reached : bool
 var hit : bool
 var attacking : bool
 var health = 5
-var fire_ball = load_ability("basic_lightning_attack")
 
 func _ready():
 	animation.play("idle")
@@ -58,11 +58,15 @@ func takeDamage(damage):
 	hit = false
 
 func attack():
+	animation.play("idle")
 	await get_tree().create_timer(randi_range(2,3)).timeout
 	while attacking:
 		if !hit:
+			var projectile = fire_ball.instantiate()
+			add_child(projectile)
+			projectile.aim_pos = get_aim_position()
+			
 			animation.play("attack")
-			fire_ball.basic_attack(self)
 		await get_tree().create_timer(randi_range(2,3)).timeout
 
 func _on_attack_range_body_entered(body):

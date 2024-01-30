@@ -4,7 +4,7 @@ var state : State
 var state_factory
 
 
-@export var movement_speed : int = 35.0
+@export var movement_speed : float = 35.0
 @export var hp_total : int = 0
 @onready var hp : int = hp_total : set = set_hp
 @export var defence : int = 0

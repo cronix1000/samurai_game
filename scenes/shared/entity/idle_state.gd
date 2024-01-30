@@ -7,7 +7,7 @@ class_name IdleState
 func _ready():
 	animation_player.play("idle")
 
-func _process(delta):
+func _process(_delta):
 		if !persistent_state.is_on_floor():
 			persistent_state.velocity.y += 30
 		else:

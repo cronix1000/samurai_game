@@ -9,3 +9,4 @@ func basic_attack(s):
 	f_node.add_collision_exception_with(s)
 	
 	get_node("/root").add_child(f_node)
+	

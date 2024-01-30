@@ -9,5 +9,5 @@ func _on_aggro_range_body_entered(body):
 		aggro_target = body
 
 
-func _on_aggro_range_body_exited(body):
+func _on_aggro_range_body_exited(_body):
 	aggro_target = null

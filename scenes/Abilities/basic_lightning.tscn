@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cod8h5mlb1375"]
+[gd_scene load_steps=10 format=3 uid="uid://cod8h5mlb1375"]
 
 [ext_resource type="Texture2D" uid="uid://djpud3xvwnkmn" path="res://scenes/Abilities/Lightning_Bolt02_Y.png" id="1_se68i"]
 [ext_resource type="Script" path="res://scenes/Abilities/basic_lightning.gd" id="1_yi2fy"]
-[ext_resource type="PackedScene" uid="uid://cfxlh8jtfdifr" path="res://scenes/shared/hurthitbox/hurt_box.tscn" id="3_8dhnw"]
 [ext_resource type="PackedScene" uid="uid://bspw3sa6ghnxo" path="res://scenes/shared/hurthitbox/hit_box.tscn" id="4_g23m5"]
 [ext_resource type="AudioStream" uid="uid://b1jhnll4tad5r" path="res://scenes/Abilities/Spell_Lightning_1.wav" id="5_82ugd"]
 
@@ -47,8 +46,8 @@ _data = {
 "flying": SubResource("Animation_540ic")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tvxbg"]
-radius = 8.24621
+[sub_resource type="CircleShape2D" id="CircleShape2D_yncqn"]
+radius = 8.0
 
 [node name="basic_lightning" type="CharacterBody2D"]
 collision_layer = 2
@@ -67,18 +66,14 @@ libraries = {
 "": SubResource("AnimationLibrary_47ugd")
 }
 
-[node name="Hurt_Box" parent="." instance=ExtResource("3_8dhnw")]
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" parent="Hurt_Box" index="0"]
-shape = SubResource("CircleShape2D_tvxbg")
-
 [node name="hit_box" parent="." instance=ExtResource("4_g23m5")]
 collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
+shape = SubResource("CircleShape2D_yncqn")
 
 [node name="attack_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_82ugd")
 volume_db = -23.033
 
-[editable path="Hurt_Box"]
+[connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]
