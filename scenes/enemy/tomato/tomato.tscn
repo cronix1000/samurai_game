@@ -1,6 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dmyb0jvp843ac"]
 
 [ext_resource type="Script" path="res://scenes/enemy/tomato/tomato.gd" id="2_vwi13"]
+[ext_resource type="Animation" uid="uid://bgl1ep3pf8a1d" path="res://scenes/enemy/hit.res" id="3_3ar4v"]
 [ext_resource type="Texture2D" uid="uid://b6teeq8shlleo" path="res://scenes/enemy/tomato/Tomato-Sheet.png" id="3_f4mrp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7sl4"]
@@ -134,51 +135,11 @@ tracks/0/keys = {
 "values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3)]
 }
 
-[sub_resource type="Animation" id="Animation_xbp57"]
-resource_name = "hit"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:vframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CharacterSprite:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CharacterSprite:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [5, 4]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ndwjn"]
 _data = {
 "RESET": SubResource("Animation_7kidk"),
 "attack": SubResource("Animation_fue5g"),
-"hit": SubResource("Animation_xbp57"),
+"hit": ExtResource("3_3ar4v"),
 "idle": SubResource("Animation_7gv8c"),
 "move": SubResource("Animation_0cuag")
 }

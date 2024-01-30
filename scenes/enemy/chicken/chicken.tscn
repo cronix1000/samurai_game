@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://dw7jaerjt1qvp"]
+[gd_scene load_steps=10 format=3 uid="uid://dw7jaerjt1qvp"]
 
-[ext_resource type="PackedScene" uid="uid://dtdjuavhyjcln" path="res://scenes/enemy/enemy_base.tscn" id="1_sapno"]
 [ext_resource type="Script" path="res://scenes/enemy/chicken/chicken.gd" id="2_3b0od"]
 [ext_resource type="Texture2D" uid="uid://bkxlpgyw4cjm8" path="res://scenes/enemy/chicken/Meat-Sheet.png" id="3_16hy1"]
 
@@ -21,6 +20,22 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fue5g"]
 resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_bvbyk"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(1, 1), Vector2i(0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7gv8c"]
 resource_name = "idle"
@@ -55,13 +70,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3)]
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ndwjn"]
 _data = {
 "RESET": SubResource("Animation_7kidk"),
 "attack": SubResource("Animation_fue5g"),
+"hit": SubResource("Animation_bvbyk"),
 "idle": SubResource("Animation_7gv8c"),
 "move": SubResource("Animation_0cuag")
 }
@@ -69,46 +85,22 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_5wb3c"]
 radius = 16.0312
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pc1mq"]
-radius = 18.6815
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_klp71"]
-size = Vector2(579, 141)
-
-[node name="chicken" instance=ExtResource("1_sapno")]
-position = Vector2(0, 0)
-scale = Vector2(1, 1)
+[node name="chicken" type="CharacterBody2D"]
 collision_layer = 8
-velocity = Vector2(0, 0)
+collision_mask = 16
 script = ExtResource("2_3b0od")
-attack_range = 500
-hp_total = 300
 
-[node name="CharacterSprite" parent="." index="0"]
+[node name="CharacterSprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_16hy1")
 hframes = 4
 vframes = 3
 frame = 8
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ndwjn")
 }
 
-[node name="collider" type="CollisionShape2D" parent="." index="2"]
+[node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5wb3c")
 debug_color = Color(0.0705882, 0.631373, 0.458824, 0.419608)
-
-[node name="Hurt_Box" parent="." index="3"]
-collision_mask = 5
-
-[node name="CollisionShape2D" parent="Hurt_Box" index="0"]
-shape = SubResource("CircleShape2D_pc1mq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="aggro_range" index="0"]
-position = Vector2(1, -53.5)
-shape = SubResource("RectangleShape2D_klp71")
-
-[connection signal="has_died" from="." to="." method="_on_has_died"]
-
-[editable path="Hurt_Box"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckhxoragbtjx7"]
+[gd_scene load_steps=14 format=3 uid="uid://ckhxoragbtjx7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_o7j26"]
 [ext_resource type="Texture2D" uid="uid://dxajt14yc4u6d" path="res://scenes/player/Character-Sheet.png" id="3_6xqr4"]
+[ext_resource type="PackedScene" uid="uid://cd0oigkypo4lb" path="res://scenes/player/inventory/inventory_full.tscn" id="4_tkfdk"]
+[ext_resource type="PackedScene" uid="uid://boctsrgakcum1" path="res://scenes/player/inventory/slot_container_generic.tscn" id="5_dg324"]
 [ext_resource type="AudioStream" uid="uid://bguxlig24ivi5" path="res://scenes/player/Spell_Wind_1.wav" id="8_rcbej"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li0xk"]
@@ -205,5 +207,20 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(12, 0)
 shape = SubResource("RectangleShape2D_710rl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventory_full" parent="CanvasLayer" instance=ExtResource("4_tkfdk")]
+offset_left = 1.0
+offset_top = 66.0
+offset_right = 333.0
+offset_bottom = 93.0
+
+[node name="slot_container_generic" parent="CanvasLayer" instance=ExtResource("5_dg324")]
+anchors_preset = -1
+anchor_right = 0.231
+anchor_bottom = 0.083
+offset_right = -266.112
+offset_bottom = -53.784
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

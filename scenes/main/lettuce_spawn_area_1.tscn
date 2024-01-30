@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://gelvurmy3cua"]
 
 [ext_resource type="Texture2D" uid="uid://c5jj4eyaiowp0" path="res://scenes/main/Tile-Sheet.png" id="1_inwby"]
-[ext_resource type="PackedScene" uid="uid://eng0556r3j57" path="res://scenes/player/player.tscn" id="2_ut3u8"]
+[ext_resource type="PackedScene" uid="uid://ckhxoragbtjx7" path="res://scenes/player/player.tscn" id="2_ut3u8"]
 [ext_resource type="PackedScene" uid="uid://q2ndpv4x6a1b" path="res://scenes/main/enemy_spawner.tscn" id="3_3nnam"]
 [ext_resource type="PackedScene" uid="uid://bjuhh8ray6jmj" path="res://scenes/enemy/lettuce/lettuce.tscn" id="4_k1ko5"]
 [ext_resource type="PackedScene" uid="uid://bi6yd36yn103n" path="res://scenes/main/map_switcher_level_1.tscn" id="5_w0078"]
@@ -670,8 +670,6 @@ layer_0/tile_data = PackedInt32Array(-262150, 0, 7, -196614, 0, 8, -327685, 6553
 
 [node name="player" parent="." instance=ExtResource("2_ut3u8")]
 position = Vector2(25, -70)
-scale = Vector2(1, 1)
-velocity = Vector2(0, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -679,10 +677,9 @@ tile_set = SubResource("TileSet_fm47c")
 format = 2
 layer_0/tile_data = PackedInt32Array(65508, 1114112, 7, 65509, 983040, 7, 65510, 1114112, 7, 65511, 983040, 7, 65512, 1114112, 7, 65513, 1245184, 9, 65514, 1245184, 9, 65515, 1114112, 9, 65516, 983040, 9, 65517, 1245184, 7, 65518, 983040, 9, 65519, 983040, 7, 65520, 983040, 9, 65521, 1114112, 9, 65522, 983040, 9, 65523, 983040, 7, 65524, 983040, 7, 65525, 1114112, 9, 65526, 983040, 9, 65527, 983040, 7, 65528, 1245184, 9, 65529, 983040, 7, 65530, 983040, 9, 65531, 1114112, 9, 65532, 983040, 9, 65533, 1245184, 7, 65534, 983040, 9, 65535, 983040, 7, 0, 1114112, 9, 1, 1245184, 9, 2, 1245184, 9, 3, 983040, 7, 4, 983040, 9, 5, 1245184, 9, 6, 1245184, 9, 7, 983040, 7, 8, 983040, 9, 9, 1114112, 7, 10, 1245184, 9, 11, 1114112, 7, 12, 983040, 9, 13, 1114112, 7, 14, 983040, 7, 15, 1245184, 7, 16, 983040, 7, 17, 1245184, 7, 18, 983040, 7, 19, 1245184, 7, 20, 1245184, 9, 21, 1114112, 7, 22, 1245184, 9, 23, 1245184, 9, 24, 983040, 9, 25, 1245184, 7, 26, 983040, 9, 27, 1245184, 7, 28, 983040, 7, 29, 983040, 9, 30, 1245184, 7, 31, 1114112, 7, 32, 1114112, 9, 33, 1245184, 7, 34, 983040, 7, 35, 1245184, 9, 36, 983040, 7, 37, 983040, 9, 38, 1245184, 9, 39, 1245184, 7, 40, 1245184, 9, 41, 1114112, 7, 42, 983040, 7, 43, 983040, 7, 44, 1114112, 7, 45, 983040, 9, 46, 1245184, 9, 47, 1114112, 7, 48, 983040, 9, 49, 983040, 9, 50, 1114112, 7, 51, 1114112, 7, 52, 983040, 9, 53, 1245184, 9, 54, 1114112, 9, 55, 1114112, 7, 56, 1245184, 7, 57, 1114112, 7, 58, 1245184, 7, 59, 1245184, 7, 60, 1114112, 7, 61, 983040, 7, 62, 983040, 9, 63, 1114112, 9, 64, 1245184, 9, 65, 1114112, 7, 66, 1114112, 9, 67, 983040, 9, 68, 1114112, 7, 69, 1114112, 7, 70, 983040, 9, 71, 983040, 7, 72, 1114112, 7, 73, 1245184, 7, 74, 1245184, 9, 75, 983040, 9, 76, 1114112, 7, 77, 1245184, 7, 78, 1245184, 7, 79, 983040, 9, 80, 1114112, 9, 81, 1245184, 7, 82, 1114112, 9, 83, 1114112, 7, 84, 983040, 9, 65502, 983040, 9, 65503, 1114112, 7, 65504, 1245184, 7, 65505, 1114112, 7, 65506, 1245184, 9, 65507, 983040, 7)
 
-[node name="enemy_spawner" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("3_3nnam")]
+[node name="enemy_spawner" parent="." instance=ExtResource("3_3nnam")]
 position = Vector2(441, -35)
 spawn = ExtResource("4_k1ko5")
-tile_map = NodePath("../TileMap")
 
 [node name="map_switcher_level_1" parent="." instance=ExtResource("5_w0078")]
 position = Vector2(-362, 1)

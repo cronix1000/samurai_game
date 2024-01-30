@@ -21,7 +21,8 @@ func display_percent():
 		var quant = Inventory.items_quant[index]
 		total += quant
 	value = (total/max_inv_space ) * 100
-	Inventory.connect("items_changed", Callable(self, "_on_inventory_items_changed"))
+	if(!Inventory.is_connected("items_changed", Callable(self, "_on_inventory_items_changed"))):
+		Inventory.connect("items_changed", Callable(self, "_on_inventory_items_changed"))
 	
 func _on_inventory_items_changed(indexes):
 	display_percent()
