@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GameManager="*res://scenes/shared/scripts/GameManager.gd"
 inventory="*res://scenes/player/inventory/inventory.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Samurai_Game"

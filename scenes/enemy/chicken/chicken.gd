@@ -8,7 +8,7 @@ const SPEED = 30
 var direction
 var reached : bool
 var hit : bool
-var health = 3
+var health = 5
 
 func _ready():
 	animation.play("idle")

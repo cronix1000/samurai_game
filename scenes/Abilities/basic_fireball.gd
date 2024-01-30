@@ -23,18 +23,9 @@ func _ready():
 	queue_free()
 	#Explote etc...
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	move_and_slide()
-	var collision = get_last_slide_collision()
-	if(collision && collision.get_collider()):
-		var collider = collision.get_collider()
-		queue_free()
-		#if(collider.is_in_group("health")):
-		#	collider.health
-			
-
-
 func _on_hurt_box_area_entered(hitbox):
 	queue_free()
+
+func _on_hit_box_body_entered(body):
+	if body.is_in_group("player"):
+		queue_free()

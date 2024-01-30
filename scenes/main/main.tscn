@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcpwfdkuc3ik0"]
+[gd_scene load_steps=18 format=3 uid="uid://dcpwfdkuc3ik0"]
 
 [ext_resource type="Texture2D" uid="uid://c5jj4eyaiowp0" path="res://scenes/main/Tile-Sheet.png" id="1_t85kn"]
 [ext_resource type="Script" path="res://scenes/main/switch_maps_1.gd" id="2_2nhrg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dmyb0jvp843ac" path="res://scenes/enemy/tomato/tomato.tscn" id="7_umki0"]
 [ext_resource type="PackedScene" uid="uid://jg1q6esa6dhq" path="res://scenes/enemy/lemon/lemon.tscn" id="8_i7v3e"]
 [ext_resource type="PackedScene" uid="uid://dw7jaerjt1qvp" path="res://scenes/enemy/chicken/chicken.tscn" id="9_x36qn"]
+[ext_resource type="PackedScene" uid="uid://rwpg2s3xj77s" path="res://scenes/enemy/fish/fish.tscn" id="10_5ed33"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l11k5"]
 texture = ExtResource("1_t85kn")
@@ -701,26 +702,26 @@ position = Vector2(0, -54)
 shape = SubResource("RectangleShape2D_7a48v")
 
 [node name="map_switcher_level_2" type="Area2D" parent="."]
-position = Vector2(137, 4)
+position = Vector2(125, 4)
 monitorable = false
 script = ExtResource("2_2nhrg")
-leftCords1 = 700
-rightCords1 = 1360
-leftCords2 = 100
-rightCords2 = 800
+leftCords1 = 100
+rightCords1 = 800
+leftCords2 = -425
+rightCords2 = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map_switcher_level_2"]
-position = Vector2(-12, -54)
+position = Vector2(0, -54)
 shape = SubResource("RectangleShape2D_7a48v")
 
 [node name="map_switcher_level_3" type="Area2D" parent="."]
-position = Vector2(-400, -55)
+position = Vector2(-400, -50)
 monitorable = false
 script = ExtResource("2_2nhrg")
-leftCords1 = 700
-rightCords1 = 1360
-leftCords2 = 100
-rightCords2 = 800
+leftCords1 = -425
+rightCords1 = 150
+leftCords2 = -1050
+rightCords2 = -375
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map_switcher_level_3"]
 shape = SubResource("RectangleShape2D_7a48v")
@@ -729,24 +730,12 @@ shape = SubResource("RectangleShape2D_7a48v")
 position = Vector2(-1015, -50)
 monitorable = false
 script = ExtResource("2_2nhrg")
-leftCords1 = 700
-rightCords1 = 1360
-leftCords2 = 100
-rightCords2 = 800
+leftCords1 = -1050
+rightCords1 = -375
+leftCords2 = -1550
+rightCords2 = -990
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map_switcher_level_4"]
-shape = SubResource("RectangleShape2D_7a48v")
-
-[node name="map_switcher_level_5" type="Area2D" parent="."]
-position = Vector2(-1650, -51.76)
-monitorable = false
-script = ExtResource("2_2nhrg")
-leftCords1 = 700
-rightCords1 = 1360
-leftCords2 = 100
-rightCords2 = 800
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map_switcher_level_5"]
 shape = SubResource("RectangleShape2D_7a48v")
 
 [node name="switch_to_restruant" type="Area2D" parent="."]
@@ -789,7 +778,7 @@ position = Vector2(40, 0)
 position = Vector2(85, 0)
 
 [node name="Spawner Area02" parent="." instance=ExtResource("6_mjjp3")]
-position = Vector2(384, -17)
+position = Vector2(384, -19)
 spawn = ExtResource("7_umki0")
 childrenCount = 9
 outsideCordLeft = 100
@@ -810,11 +799,11 @@ position = Vector2(40, 0)
 position = Vector2(85, 0)
 
 [node name="Spawner Area03" parent="." instance=ExtResource("6_mjjp3")]
-position = Vector2(-188, -16)
+position = Vector2(-188, -18)
 spawn = ExtResource("8_i7v3e")
 childrenCount = 9
-outsideCordLeft = 130
-outsideCordRight = -700
+outsideCordLeft = -425
+outsideCordRight = 150
 
 [node name="Point 01" type="Marker2D" parent="Spawner Area03"]
 position = Vector2(-34, 0)
@@ -831,91 +820,49 @@ position = Vector2(40, 0)
 [node name="Point 05" type="Marker2D" parent="Spawner Area03"]
 position = Vector2(85, 0)
 
-[node name="Point 06" type="Marker2D" parent="Spawner Area03"]
-position = Vector2(-180, 0)
-
-[node name="Point 07" type="Marker2D" parent="Spawner Area03"]
-position = Vector2(99, 0)
-
-[node name="Point 08" type="Marker2D" parent="Spawner Area03"]
-position = Vector2(192, 0)
-
-[node name="Point 09" type="Marker2D" parent="Spawner Area03"]
-position = Vector2(232, 0)
-
 [node name="Spawner Area04" parent="." instance=ExtResource("6_mjjp3")]
-position = Vector2(-723, -40)
+position = Vector2(-723, -18)
 spawn = ExtResource("9_x36qn")
-childrenCount = 9
-outsideCordLeft = -1015
-outsideCordRight = -400
+childrenCount = 11
+outsideCordLeft = -1050
+outsideCordRight = -375
 
 [node name="Point 01" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(-34, 26.49)
+position = Vector2(-14, 0)
 
 [node name="Point 02" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(-93, 26.49)
+position = Vector2(-124, 0)
 
 [node name="Point 03" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(-72, 26.49)
+position = Vector2(-72, 0)
 
 [node name="Point 04" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(40, 26.49)
+position = Vector2(40, 0)
 
 [node name="Point 05" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(85, 26.49)
-
-[node name="Point 06" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(-180, 26.49)
-
-[node name="Point 07" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(99, 26.49)
-
-[node name="Point 08" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(192, 26.49)
-
-[node name="Point 09" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(232, 26.49)
-
-[node name="Point 10" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(232, 26.49)
-
-[node name="Point 11" type="Marker2D" parent="Spawner Area04"]
-position = Vector2(232, 26.49)
+position = Vector2(85, 0)
 
 [node name="Spawner Area05" parent="." instance=ExtResource("6_mjjp3")]
-position = Vector2(-1378, -29)
-spawn = ExtResource("9_x36qn")
+position = Vector2(-1378, -19)
+spawn = ExtResource("10_5ed33")
 childrenCount = 9
 outsideCordLeft = -1650
-outsideCordRight = -1015
+outsideCordRight = -990
 
 [node name="Point 01" type="Marker2D" parent="Spawner Area05"]
-position = Vector2(-34, 13.625)
+position = Vector2(-15, 0)
 
 [node name="Point 02" type="Marker2D" parent="Spawner Area05"]
-position = Vector2(-93, 13.625)
+position = Vector2(-93, 0)
 
 [node name="Point 03" type="Marker2D" parent="Spawner Area05"]
-position = Vector2(-72, 13.625)
+position = Vector2(-53, 0)
 
 [node name="Point 04" type="Marker2D" parent="Spawner Area05"]
-position = Vector2(40, 13.625)
+position = Vector2(40, 0)
 
 [node name="Point 05" type="Marker2D" parent="Spawner Area05"]
-position = Vector2(85, 13.625)
-
-[node name="Point 06" type="Marker2D" parent="Spawner Area05"]
-position = Vector2(-180, 13.625)
-
-[node name="Point 07" type="Marker2D" parent="Spawner Area05"]
-position = Vector2(99, 13.625)
-
-[node name="Point 08" type="Marker2D" parent="Spawner Area05"]
-position = Vector2(192, 13.625)
-
-[node name="Point 09" type="Marker2D" parent="Spawner Area05"]
-position = Vector2(232, 13.625)
+position = Vector2(85, 0)
 
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(1370, 0)
@@ -924,14 +871,22 @@ position = Vector2(1370, 0)
 position = Vector2(-4, -23)
 shape = SubResource("RectangleShape2D_k53e2")
 
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(-1555, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(-4, -23)
+shape = SubResource("RectangleShape2D_k53e2")
+
 [connection signal="body_entered" from="map_switcher_level_1" to="map_switcher_level_1" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="map_switcher_level_1" to="map_switcher_level_1" method="_on_body_exited"]
 [connection signal="body_entered" from="map_switcher_level_2" to="map_switcher_level_2" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="map_switcher_level_2" to="map_switcher_level_2" method="_on_body_exited"]
 [connection signal="body_entered" from="map_switcher_level_3" to="map_switcher_level_3" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="map_switcher_level_3" to="map_switcher_level_1" method="_on_body_exited"]
+[connection signal="body_exited" from="map_switcher_level_3" to="map_switcher_level_3" method="_on_body_exited"]
 [connection signal="body_entered" from="map_switcher_level_4" to="map_switcher_level_4" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="map_switcher_level_4" to="map_switcher_level_1" method="_on_body_exited"]
-[connection signal="body_entered" from="map_switcher_level_5" to="map_switcher_level_5" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="map_switcher_level_5" to="map_switcher_level_1" method="_on_body_exited"]
+[connection signal="body_exited" from="map_switcher_level_4" to="map_switcher_level_4" method="_on_body_exited"]
 [connection signal="body_entered" from="switch_to_restruant" to="switch_to_restruant" method="_on_body_entered"]
 [connection signal="body_exited" from="switch_to_restruant" to="switch_to_restruant" method="_on_body_exited"]
