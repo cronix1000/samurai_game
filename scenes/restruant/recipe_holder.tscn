@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dccu0js56sxvo"]
+[gd_scene load_steps=8 format=3 uid="uid://dccu0js56sxvo"]
 
 [ext_resource type="Script" path="res://scenes/restruant/recipe_holder.gd" id="1_fd0du"]
 [ext_resource type="Texture2D" uid="uid://bpja2rab8t1pj" path="res://scenes/player/inventory/Raven Fantasy GUI Starter Set.png" id="2_fokwv"]
 [ext_resource type="Texture2D" uid="uid://cfv3g0lb0eakl" path="res://recipes/burger.png" id="3_ugymu"]
+[ext_resource type="FontFile" uid="uid://cqfhvcby25oed" path="res://scenes/Fonts/Pink and Crimson.otf" id="4_rbux2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_73t3f"]
 atlas = ExtResource("2_fokwv")
@@ -13,7 +14,9 @@ atlas = ExtResource("2_fokwv")
 region = Rect2(240, 32, 48, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cskvc"]
-font_size = 12
+font = ExtResource("4_rbux2")
+font_size = 15
+font_color = Color(0, 0, 0, 1)
 
 [node name="background" type="TextureButton"]
 offset_right = 48.0
@@ -34,13 +37,16 @@ texture = ExtResource("3_ugymu")
 
 [node name="description" type="Label" parent="."]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 3.0
-offset_right = 102.0
-offset_bottom = 42.0
+offset_left = 17.0
+offset_top = 1.0
+offset_right = 112.0
+offset_bottom = 51.0
 scale = Vector2(0.285, 0.285)
-text = "asdasd"
+text = "TOmato Patch"
 label_settings = SubResource("LabelSettings_cskvc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="ready" from="recipe" to="." method="_on_recipe_ready"]
