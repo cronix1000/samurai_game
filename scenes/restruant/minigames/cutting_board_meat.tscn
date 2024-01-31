@@ -23,13 +23,19 @@ font_color = Color(0, 0, 0, 1)
 position = Vector2(604, 327)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.685, 0.685)
+transform = Transform2D(0.685, 0, 0, 0.685, 0, 0)
 
 [node name="Cutting Board" type="TextureRect" parent="CanvasLayer"]
 offset_right = 1157.0
 offset_bottom = 650.0
+scale = Vector2(0.685, 0.685)
 texture = SubResource("AtlasTexture_pe68b")
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+scale = Vector2(0.685, 0.685)
+transform = Transform2D(0.685, 0, 0, 0.685, 0, 0)
 script = ExtResource("2_e2tr4")
 
 [node name="pre_cutting" type="TextureRect" parent="CanvasLayer2"]
@@ -37,7 +43,9 @@ offset_left = 132.0
 offset_top = 34.0
 offset_right = 1038.0
 offset_bottom = 601.0
+scale = Vector2(0.685, 0.685)
 texture = SubResource("AtlasTexture_ehl6f")
+metadata/_edit_use_anchors_ = true
 
 [node name="done_cutting" type="TextureRect" parent="CanvasLayer2"]
 visible = false
@@ -45,16 +53,19 @@ offset_left = 132.0
 offset_top = 41.0
 offset_right = 1024.0
 offset_bottom = 575.0
+scale = Vector2(0.685, 0.685)
 texture = SubResource("AtlasTexture_hw8lt")
 
 [node name="line_bottom" type="Line2D" parent="CanvasLayer2"]
 unique_name_in_owner = true
-points = PackedVector2Array(235, 374, 278, 453, 320, 494, 380, 519, 430, 543, 576, 541, 726, 540, 813, 528, 864, 500, 915, 461)
+scale = Vector2(0.685, 0.685)
+points = PackedVector2Array(198.54, 265.693, 262.774, 356.204, 331.387, 378.102, 411.679, 379.562, 516.788, 375.182, 592.701, 378.102, 658.394, 335.766)
 width = 0.0
 
 [node name="line_top" type="Line2D" parent="CanvasLayer2"]
 unique_name_in_owner = true
-points = PackedVector2Array(268, 167, 307, 138, 367, 122, 464, 105, 530, 134, 575, 159, 609, 174, 693, 165, 788, 162, 837, 164, 884, 176, 918, 224, 957, 302)
+scale = Vector2(0.685, 0.685)
+points = PackedVector2Array(207.299, 162.044, 261.314, 103.65, 325.547, 78.8321, 421.898, 115.328, 534.307, 122.628, 591.241, 119.708, 632.117, 129.927, 680.292, 167.883)
 width = 0.0
 
 [node name="Label" type="Label" parent="CanvasLayer2"]

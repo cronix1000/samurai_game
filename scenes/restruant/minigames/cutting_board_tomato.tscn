@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://doxp3x5cfvv7m"]
+[gd_scene load_steps=4 format=3 uid="uid://doxp3x5cfvv7m"]
 
 [ext_resource type="Texture2D" uid="uid://c8bptkpwe8opa" path="res://scenes/restruant/minigames/Minigames-Sheet.png" id="1_3ob2i"]
-[ext_resource type="Script" path="res://scenes/restruant/minigames/tomato_fall.gd" id="2_isoiq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pe68b"]
 atlas = ExtResource("1_3ob2i")
@@ -11,26 +10,25 @@ region = Rect2(0, 0, 128, 112)
 font_size = 47
 font_color = Color(0, 0, 0, 1)
 
-[node name="cutting_board" type="Node2D"]
+[node name="cutting_board" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Cutting Board" type="TextureRect" parent="CanvasLayer"]
-offset_right = 1157.0
+[node name="Cutting Board" type="TextureRect" parent="."]
+offset_left = -1.055
+offset_right = 1155.92
 offset_bottom = 650.0
 texture = SubResource("AtlasTexture_pe68b")
 
-[node name="tomato_fall" type="CanvasLayer" parent="."]
-script = ExtResource("2_isoiq")
-
-[node name="spawn_points" type="Line2D" parent="tomato_fall"]
+[node name="spawn_points" type="Line2D" parent="."]
+position = Vector2(-1.055, 0)
 points = PackedVector2Array(154, 38, 206, 32, 307, 34, 407, 30, 492, 30, 565, 38, 652, 36, 746, 36, 841, 41, 928, 47, 984, 45)
 width = 0.0
 
-[node name="Label" type="Label" parent="tomato_fall"]
-offset_left = 326.0
+[node name="Label" type="Label" parent="."]
+offset_left = 324.945
 offset_top = 110.0
-offset_right = 912.0
+offset_right = 910.945
 offset_bottom = 231.0
 label_settings = SubResource("LabelSettings_ustj1")
 horizontal_alignment = 1
