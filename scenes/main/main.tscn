@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dcpwfdkuc3ik0"]
+[gd_scene load_steps=27 format=3 uid="uid://dcpwfdkuc3ik0"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_bg4ca"]
 [ext_resource type="Texture2D" uid="uid://c5jj4eyaiowp0" path="res://scenes/main/Tile-Sheet.png" id="1_t85kn"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dw7jaerjt1qvp" path="res://scenes/enemy/chicken/chicken.tscn" id="9_x36qn"]
 [ext_resource type="PackedScene" uid="uid://rwpg2s3xj77s" path="res://scenes/enemy/fish/fish.tscn" id="10_5ed33"]
 [ext_resource type="PackedScene" uid="uid://b1b7vulj8cm8h" path="res://scenes/transistion/transition.tscn" id="14_qlbjh"]
+[ext_resource type="AudioStream" uid="uid://deoaouiakil8s" path="res://scenes/main/Dancing_with_Deer1.mp3" id="15_jjebp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l11k5"]
 texture = ExtResource("1_t85kn")
@@ -933,6 +934,11 @@ scale = Vector2(4621, 545)
 texture = SubResource("CanvasTexture_qpf5i")
 
 [node name="Transition" parent="." instance=ExtResource("14_qlbjh")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_jjebp")
+volume_db = -16.567
+autoplay = true
 
 [connection signal="body_entered" from="map_switcher_level_1" to="map_switcher_level_1" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="map_switcher_level_1" to="map_switcher_level_1" method="_on_body_exited"]

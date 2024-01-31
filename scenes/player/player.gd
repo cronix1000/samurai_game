@@ -69,5 +69,5 @@ func takeDamage(damage):
 		#Return to restruant
 		queue_free()
 		get_tree().change_scene_to_file("res://scenes/restruant/restruant.tscn")
-		health = 16
+		health = 16         
 	hit = false
