@@ -14,7 +14,7 @@ func _ready():
 	for i in range(slots):
 		items_quant.append(0)
 
-	items[0] = GameManager.get_item_by_key("tomato")
+	items[0] = GameManager.get_item_by_key("meat")
 	items_quant[0] = 5
 	#emit_signal("items_changed", [0])
 

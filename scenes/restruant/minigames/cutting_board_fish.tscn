@@ -23,13 +23,19 @@ font_color = Color(0, 0, 0, 1)
 position = Vector2(604, 327)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.685, 0.685)
+transform = Transform2D(0.685, 0, 0, 0.685, 0, 0)
 
 [node name="Cutting Board" type="TextureRect" parent="CanvasLayer"]
 offset_right = 1157.0
 offset_bottom = 650.0
+scale = Vector2(0.685, 0.685)
 texture = SubResource("AtlasTexture_pe68b")
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+scale = Vector2(0.685, 0.685)
+transform = Transform2D(0.685, 0, 0, 0.685, 0, 0)
 script = ExtResource("2_7uwfa")
 
 [node name="pre_cutting" type="TextureRect" parent="CanvasLayer2"]
@@ -37,7 +43,9 @@ offset_left = 132.0
 offset_top = 34.0
 offset_right = 1038.0
 offset_bottom = 601.0
+scale = Vector2(0.685, 0.685)
 texture = SubResource("AtlasTexture_ehl6f")
+metadata/_edit_use_anchors_ = true
 
 [node name="done_cutting" type="TextureRect" parent="CanvasLayer2"]
 visible = false
@@ -45,16 +53,19 @@ offset_left = 132.0
 offset_top = 41.0
 offset_right = 1024.0
 offset_bottom = 575.0
+scale = Vector2(0.685, 0.685)
 texture = SubResource("AtlasTexture_hw8lt")
 
 [node name="line_bottom" type="Line2D" parent="CanvasLayer2"]
 unique_name_in_owner = true
-points = PackedVector2Array(279, 480, 299, 543, 358, 567, 434, 534, 464, 502, 527, 433, 596, 433, 683, 473, 756, 477, 899, 393)
+scale = Vector2(0.685, 0.685)
+points = PackedVector2Array(213.139, 375.182, 267.153, 413.139, 331.387, 391.241, 376.642, 357.664, 414.599, 316.788, 480.292, 341.606, 521.168, 354.745, 608.759, 338.686, 656.934, 297.81)
 width = 0.0
 
 [node name="line_top" type="Line2D" parent="CanvasLayer2"]
 unique_name_in_owner = true
-points = PackedVector2Array(254, 167, 279, 94, 337, 79, 436, 109, 494, 153, 519, 195, 605, 196, 693, 165, 742, 164, 779, 166, 846, 195, 869, 231, 915, 303)
+scale = Vector2(0.685, 0.685)
+points = PackedVector2Array(208.759, 160.584, 217.518, 68.6131, 283.212, 46.7153, 379.562, 90.511, 408.759, 132.847, 455.474, 128.467, 527.007, 97.8102, 591.241, 106.569, 667.153, 167.883)
 width = 0.0
 
 [node name="Label" type="Label" parent="CanvasLayer2"]
@@ -62,8 +73,10 @@ offset_left = 362.0
 offset_top = 43.0
 offset_right = 853.0
 offset_bottom = 66.0
+scale = Vector2(0.685, 0.685)
 label_settings = SubResource("LabelSettings_ruvds")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="lines" type="Node" parent="CanvasLayer2"]

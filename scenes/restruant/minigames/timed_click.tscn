@@ -8,6 +8,10 @@ atlas = ExtResource("1_40i0i")
 region = Rect2(257, 18.5, 16, 13)
 
 [node name="timed_click" type="TextureButton"]
+offset_left = -32.0
+offset_top = -23.0
+offset_right = -16.0
+offset_bottom = -10.0
 scale = Vector2(4.47, 4.47)
 texture_normal = SubResource("AtlasTexture_3r6i7")
 script = ExtResource("1_4s7cp")
@@ -15,5 +19,6 @@ script = ExtResource("1_4s7cp")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

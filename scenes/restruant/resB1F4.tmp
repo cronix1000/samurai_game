@@ -186,9 +186,9 @@ texture = ExtResource("2_vh474")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.615, 3.615)
 
-[node name="game holder" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="game holder"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_top = -0.017
 anchor_bottom = -0.017

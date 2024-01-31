@@ -30,8 +30,8 @@ func _process(delta):
 			top_button.position = bottom_point
 			add_child(bottom_button)
 			add_child(top_button)
-			bottom_button.connect("pressed", Callable(self, "button_pressed"))
-			top_button.connect("pressed", Callable(self, "button_pressed"))
+			bottom_button.connect("mouse_entered", Callable(self, "button_pressed"))
+			top_button.connect("mouse_entered", Callable(self, "button_pressed"))
 			bottom_button.get_child(0).connect("timeout", Callable(self, "reset"))
 			top_button.get_child(0).connect("timeout", Callable(self, "reset"))
 			generate_new_sequence = false
