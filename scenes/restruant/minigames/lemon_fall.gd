@@ -19,7 +19,7 @@ func _process(delta):
 		add_child(tomato_inst)
 		time = 0
 	if(points > 5):
-		label.text = "Congrats you cut the tomatos"
+		label.text = "Congrats you cut the lemons"
 		await get_tree().create_timer(1.5).timeout
 		emit_signal("completed")
 		queue_free()

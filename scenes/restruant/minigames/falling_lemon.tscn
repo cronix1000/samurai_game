@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bakjnwc48ahmy"]
 
-[ext_resource type="Script" path="res://scenes/restruant/minigames/falling_tomato.gd" id="1_o7qw3"]
+[ext_resource type="Script" path="res://scenes/restruant/minigames/falling_lemon.gd" id="1_wwxhi"]
 [ext_resource type="Texture2D" uid="uid://ct5cbjl7akgpd" path="res://scenes/restruant/minigames/Lemon-Mini_game.png" id="2_vqq3r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lavel"]
@@ -12,25 +12,29 @@ atlas = ExtResource("2_vqq3r")
 region = Rect2(48, 0, 48, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_po3g0"]
-radius = 11.9982
-height = 40.0
+radius = 3.17404
+height = 9.80464
 
 [node name="fallin_lemon" type="Node2D"]
-script = ExtResource("1_o7qw3")
+script = ExtResource("1_wwxhi")
 
 [node name="lemon" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
+scale = Vector2(4.13, 4.13)
 texture = SubResource("AtlasTexture_lavel")
 
 [node name="cut_lemon" type="Sprite2D" parent="."]
 visible = false
+scale = Vector2(4.13, 4.13)
 texture = SubResource("AtlasTexture_u5hd4")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4.13, 4.13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.90735e-06, 1)
 rotation = -1.55334
+scale = Vector2(4.13, 4.13)
 shape = SubResource("CapsuleShape2D_po3g0")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

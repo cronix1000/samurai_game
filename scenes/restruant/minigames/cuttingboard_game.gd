@@ -43,7 +43,8 @@ func _process(delta):
 		await get_tree().create_timer(1.5).timeout
 		emit_signal("completed")
 		get_parent().queue_free()
-		
+
+	
 func button_pressed():
 	hits +=1 
 	print(hits)

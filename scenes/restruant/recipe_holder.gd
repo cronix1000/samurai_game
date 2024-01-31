@@ -14,7 +14,7 @@ func display_item(item):
 		self.item = item
 		var texture =  load("res://recipes/" + item["key"]+".png")
 		recipe_icon.texture = texture
-		#description.text = str(item["description"]) if item["description"] else ""
+		description.text = str(item["key"]) if item["key"] else ""
 	else:
 		#recipe_icon.texture = null
 		description.text = ""

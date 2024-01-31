@@ -12,25 +12,29 @@ atlas = ExtResource("2_mc8pn")
 region = Rect2(304, 64, 48, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_po3g0"]
-radius = 11.9982
-height = 40.0
+radius = 3.88445
+height = 11.3665
 
 [node name="falling_tomato" type="Node2D"]
 script = ExtResource("1_s4ecw")
 
 [node name="tomato" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
+scale = Vector2(3.34, 3.34)
 texture = SubResource("AtlasTexture_lavel")
 
 [node name="cut_tomato" type="Sprite2D" parent="."]
 visible = false
+scale = Vector2(3.34, 3.34)
 texture = SubResource("AtlasTexture_u5hd4")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(3.34, 3.34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.90735e-06, 1)
 rotation = -1.55334
+scale = Vector2(3.34, 3.34)
 shape = SubResource("CapsuleShape2D_po3g0")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
