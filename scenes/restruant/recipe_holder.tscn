@@ -17,7 +17,7 @@ font_size = 12
 
 [node name="background" type="TextureButton"]
 offset_right = 48.0
-offset_bottom = 17.0
+offset_bottom = 16.0
 texture_normal = SubResource("AtlasTexture_73t3f")
 texture_pressed = SubResource("AtlasTexture_1iqbl")
 script = ExtResource("1_fd0du")

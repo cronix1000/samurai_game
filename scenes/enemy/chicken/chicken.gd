@@ -50,7 +50,7 @@ func takeDamage(damage):
 	await get_tree().create_timer(0.2).timeout
 	
 	if health <= 0:
-		item = GameManager.get_item_by_key("lettuce")
+		item = GameManager.get_item_by_key("meat")
 		inventory.add_item(item)
 		queue_free()
 	

@@ -36,7 +36,6 @@ func pick_recipes():
 			recipes.append(GameManager.get_recipe_by_key(recipe))
 			recipes_total += 1
 				
-	print("hello")
 	#recipes.append(GameManager.get_recipe_by_key(recipe_keys.pick_random()))
 	#recipes.append(GameManager.get_recipe_by_key(recipe_keys.pick_random()))
 	

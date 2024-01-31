@@ -4,50 +4,40 @@
 [ext_resource type="Texture2D" uid="uid://dilfvpndalcgy" path="res://scenes/player/inventory/Inventory_slot.png" id="2_2svqy"]
 
 [node name="item_slot" type="TextureRect"]
-custom_minimum_size = Vector2(100, 100)
-anchors_preset = -1
-anchor_left = 0.00173611
-anchor_top = 0.00154321
-anchor_right = 0.082125
-anchor_bottom = 0.146444
-offset_right = 0.391998
-offset_bottom = 0.103989
+custom_minimum_size = Vector2(60, 60)
+offset_right = 60.0
+offset_bottom = 60.0
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_q8nxl")
 metadata/_edit_use_anchors_ = true
 
 [node name="item_quantity" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.709
-anchor_top = 0.69
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.159
-offset_top = -18.43
-offset_right = -11.0
-offset_bottom = -10.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 43.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 104.0
-offset_bottom = 105.0
+layout_mode = 2
+offset_left = 2.85714
+offset_top = 2.85714
+offset_right = 106.857
+offset_bottom = 107.857
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_2svqy")
-expand_mode = 1
 
 [node name="item_icon" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
+layout_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.0
-offset_top = -24.0
-offset_right = 27.0
-offset_bottom = 7.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 17.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.64706)
-expand_mode = 1

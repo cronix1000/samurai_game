@@ -16,7 +16,7 @@ func _ready():
 func display_item_slots(cols,rows):
 	columns = cols
 	slots = cols* rows
-	for index in range(slots):
+	for index in range(5):
 		var item_slot = ItemSlot.instantiate()
 		add_child(item_slot)
 		item_slot.display_item(Inventory.items[index])

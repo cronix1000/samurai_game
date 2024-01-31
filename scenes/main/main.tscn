@@ -937,7 +937,7 @@ texture = SubResource("CanvasTexture_qpf5i")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_jjebp")
-volume_db = -16.567
+volume_db = 5.0
 autoplay = true
 
 [connection signal="body_entered" from="map_switcher_level_1" to="map_switcher_level_1" method="_on_body_entered" flags=18]
