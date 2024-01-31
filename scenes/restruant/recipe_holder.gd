@@ -28,7 +28,10 @@ func _on_pressed():
 			ingredient_lc = ingredient
 			var minigame = load("res://scenes/restruant/minigames/cutting_board_" + ingredient + ".tscn")
 			var mini_game = minigame.instantiate()
+			var pos = (get_viewport_rect().size/2) + Vector2(1000, 1000)
+			mini_game.global_position = pos
 			get_parent().add_child(mini_game)
+			print(get_parent().get_child(5))
 			await mini_game.get_child(1).completed
 	queue_free()
 	emit_signal("run_games", item)

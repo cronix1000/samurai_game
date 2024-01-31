@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckhxoragbtjx7"]
+[gd_scene load_steps=16 format=3 uid="uid://ckhxoragbtjx7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_o7j26"]
 [ext_resource type="Texture2D" uid="uid://dxajt14yc4u6d" path="res://scenes/player/Character-Sheet.png" id="3_6xqr4"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cd0oigkypo4lb" path="res://scenes/player/inventory/inventory_full.tscn" id="4_tkfdk"]
 [ext_resource type="PackedScene" uid="uid://boctsrgakcum1" path="res://scenes/player/inventory/slot_container_generic.tscn" id="5_dg324"]
 [ext_resource type="Script" path="res://scenes/player/heart_container.gd" id="6_qx26n"]
-[ext_resource type="Texture2D" uid="uid://bpja2rab8t1pj" path="res://scenes/player/inventory/Raven Fantasy GUI Starter Set.png" id="6_y5ou7"]
+[ext_resource type="Texture2D" uid="uid://cn3unpio482oq" path="res://scenes/player/inventory/hearth.png" id="7_o2xk3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li0xk"]
 atlas = ExtResource("3_6xqr4")
@@ -176,22 +176,6 @@ size = Vector2(16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_710rl"]
 size = Vector2(24, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k4av3"]
-atlas = ExtResource("6_y5ou7")
-region = Rect2(0, 96, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jknu"]
-atlas = ExtResource("6_y5ou7")
-region = Rect2(0, 96, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_obilc"]
-atlas = ExtResource("6_y5ou7")
-region = Rect2(0, 96, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4hg40"]
-atlas = ExtResource("6_y5ou7")
-region = Rect2(0, 96, 16, 16)
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 2
 script = ExtResource("2_o7j26")
@@ -229,13 +213,11 @@ shape = SubResource("RectangleShape2D_710rl")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory_full" parent="CanvasLayer" instance=ExtResource("4_tkfdk")]
-modulate = Color(0, 1, 0.14902, 1)
 offset_left = 4.0
 offset_top = 63.0
-offset_right = 310.0
-offset_bottom = 87.0
+offset_right = 84.0
+offset_bottom = 79.0
 value = 40.0
-show_percentage = false
 
 [node name="slot_container_generic" parent="CanvasLayer" instance=ExtResource("5_dg324")]
 anchors_preset = -1
@@ -249,9 +231,9 @@ anchors_preset = -1
 anchor_right = 0.21
 anchor_bottom = 0.216
 offset_left = 7.0
-offset_top = 91.0
+offset_top = 106.0
 offset_right = 133.08
-offset_bottom = 28.032
+offset_bottom = 43.032
 grow_vertical = 0
 scale = Vector2(0.7, 0.7)
 script = ExtResource("6_qx26n")
@@ -259,21 +241,21 @@ script = ExtResource("6_qx26n")
 [node name="Full_Heart1" type="TextureRect" parent="CanvasLayer/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_k4av3")
+texture = ExtResource("7_o2xk3")
 
 [node name="Full_Heart2" type="TextureRect" parent="CanvasLayer/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_7jknu")
+texture = ExtResource("7_o2xk3")
 
 [node name="Full_Heart3" type="TextureRect" parent="CanvasLayer/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_obilc")
+texture = ExtResource("7_o2xk3")
 
 [node name="Full_Heart4" type="TextureRect" parent="CanvasLayer/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_4hg40")
+texture = ExtResource("7_o2xk3")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

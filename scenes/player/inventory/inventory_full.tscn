@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd0oigkypo4lb"]
+[gd_scene load_steps=5 format=3 uid="uid://cd0oigkypo4lb"]
 
+[ext_resource type="Texture2D" uid="uid://bnt42g8uuy4ei" path="res://scenes/player/inventory/inventory-back.png" id="1_0x8o6"]
 [ext_resource type="Script" path="res://scenes/player/inventory/inventory_full.gd" id="1_ksydd"]
+[ext_resource type="Texture2D" uid="uid://w2px2pdh5emo" path="res://scenes/player/inventory/inventory-outline.png" id="2_331j6"]
+[ext_resource type="Texture2D" uid="uid://dk38k1cwgektc" path="res://scenes/player/inventory/inventory-fill.png" id="3_otn8v"]
 
-[node name="inventory_full" type="ProgressBar"]
-offset_right = 332.0
-offset_bottom = 27.0
+[node name="inventory_full" type="TextureProgressBar"]
+offset_right = 80.0
+offset_bottom = 16.0
+scale = Vector2(3, 3)
+texture_under = ExtResource("1_0x8o6")
+texture_over = ExtResource("2_331j6")
+texture_progress = ExtResource("3_otn8v")
 script = ExtResource("1_ksydd")
