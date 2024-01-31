@@ -22,10 +22,13 @@ func display_item(item):
 
 
 func _on_pressed():
+	var ingredient_lc
 	for ingredient in item.ingredients:
-		var minigame = load("res://scenes/restruant/minigames/cutting_board_" + ingredient + ".tscn")
-		var mini_game = minigame.instantiate()
-		get_parent().add_child(mini_game)
-		await mini_game.get_child(1).completed
+		if(ingredient_lc != ingredient):
+			ingredient_lc = ingredient
+			var minigame = load("res://scenes/restruant/minigames/cutting_board_" + ingredient + ".tscn")
+			var mini_game = minigame.instantiate()
+			get_parent().add_child(mini_game)
+			await mini_game.get_child(1).completed
 	queue_free()
 	emit_signal("run_games", item)

@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var tomato = $lemon
-@onready var cut_tomato = $cut_lemon
+@onready var tomato = $tomato
+@onready var cut_tomato = $cut_tomato
 
 func _ready():
 	await get_tree().create_timer(1.5).timeout

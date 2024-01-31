@@ -14,7 +14,7 @@ func _ready():
 	for i in range(slots):
 		items_quant.append(0)
 
-	items[0] = GameManager.get_item_by_key("lettuce")
+	items[0] = GameManager.get_item_by_key("tomato")
 	items_quant[0] = 5
 	#emit_signal("items_changed", [0])
 
@@ -35,13 +35,14 @@ func add_item(item):
 
 func remove_item(index):
 	var previous_item = items[index].duplicate()
-	items[index].clear()
+	items[index] = null
 	emit_signal("items_changed", [index])
 	return previous_item
 
 func set_item_quantity(index, amount):
 	items_quant[index] += amount 
 	if items_quant[index] <= 0:
+		items_quant[index] = 0
 		remove_item(index)
 	else:
 		emit_signal("items_changed", [index])
